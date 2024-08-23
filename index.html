@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+<div id="container">
+    <p>some text here</p>
+    <input type="text" id="textfield" value="Enter Text Here"/>
+</div>
+<div id="bd-grievance"></div>
+<script src="aDARequestForm.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+    console.log('hello');
+    var x=0;
+    var a=[1,2,3];
+    //this is a comment and doesn't do anything
+    /*
+    all of this
+    is
+    a
+    comment
+    */
+    if(x>1){
+        console.log('x is greater than 1');
+    }
+    else{
+        console.log('x is not greater than 1');
+    }
+    function addition(x,y){
+        var z=x+y;
+        return z;
+    }
+    var sum=addition(x,5);
+    console.log(sum);
+    function hypotenuse(a,b){
+        var c=Math.sqrt((Math.pow(a,2))+(Math.pow(b,2)));
+        return c;
+    }
+    function forLoopArray(x){
+        for(var i=0; i<x.length; i++){
+            console.log(x[i]);
+        }
+    }
+    forLoopArray(a);
+    function whileLoopArray(x){
+        var i=0;
+        while(i<x.length){
+            console.log(x[i]);
+            i++;
+        }
+    }
+    whileLoopArray(a);
+    function greetingOfTheDay(t,n){
+        var g="Good";
+        if(t>0 && t<12){
+            g+=" morning ";
+        }
+        else if(t>=12 && t<=17){
+            g+=" afternoon ";
+        }
+        else if(t>=17 && t<=24){
+            g+=" evening ";
+        }
+        else {
+            g+=" Day ";
+        }
+        return g+n;
+    }
+    var teamname=['Jonathan', 'Kevin', 'Carina', 'Victor'];
+    function greetTheTeam(t,n){
+        if(n.length<1){
+            return "There is no team";
+        }
+        for(var i=0; i<n.length; i++){
+            var g=greetingOfTheDay(t,n[i]);
+            console.log(g);
+        }
+    }
+    function updateContainer(){
+        $("#container").html("<p>new text</p>");
+    }
+    function textToConsole(){
+        var s=$("#textfield").val();
+        console.log(s);
+    }
+</script>
+</body>
+</html>
