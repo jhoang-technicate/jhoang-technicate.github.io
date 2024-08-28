@@ -1,445 +1,333 @@
-(function() {
 function initGrievanceForm() {
     //build Grievance form
     let grievanceTemplate = `
         <style>
-            .bd-66c8f6e11312c-control-group {
-                display: block;
-                margin-bottom: 24px;
+            .bd-66cf4e4c1f574-control {
+                margin-top: 10px;
             }
-            .bd-66c8f6e11312c-control-label {
+            .bd-66cf4e4c1f574-control-label,
+            .bd-66cf4e4c1f574-control-label-inline {
+                font-weight: bold;
+            }
+            .bd-66cf4e4c1f574-control-label-inline {
+                width: 140px;
                 float: left;
-                width: 170px;
-                padding-top: 5px;
-                text-align: right;
             }
-            .bd-66c8f6e11312c-controls {
-                margin-left: 180px;
-                padding-top: 5px;
-            }
-            #bd-66c8f6e11312c-grievanceForm.validated input:invalid,
-            #bd-66c8f6e11312c-grievanceForm.validated select:invalid,
-            #bd-66c8f6e11312c-raCameraForm.validated input:invalid,
-            #bd-66c8f6e11312c-raCameraForm.validated select:invalid,
-            #bd-66c8f6e11312c-raInterpreterForm.validated input:invalid,
-            #bd-66c8f6e11312c-raInterpreterForm.validated select:invalid
-            {
+            #bd-66cf4e4c1f574-grievanceForm.validated input:invalid,
+            #bd-66cf4e4c1f574-grievanceForm.validated select:invalid,
+            #bd-66cf4e4c1f574-grievanceForm.validated textarea:invalid,
+            .bd-66cf4e4c1f574-invalidField {
                 border: 1px solid red;
             }
-            .bd-66c8f6e11312c-required-label {
+            .bd-66cf4e4c1f574-required-label {
                 color: red;
             }
+            .bd-66cf4e4c1f574-table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .bd-66cf4e4c1f574-table th,
+            .bd-66cf4e4c1f574-table td {
+                padding: 8px;
+                text-align: left;
+            }
+            .bd-66cf4e4c1f574-table td {
+                border: 1px solid black;
+            }
+            #bd-66cf4e4c1f574-grievanceForm h4 {
+                text-align: center;
+            }
+            #bd-66cf4e4c1f574-grievance-type-options {
+                margin-left: 10px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            #bd-66cf4e4c1f574-grievance-type-container {
+                border: 1px solid black;
+                padding: 8px;
+            }
+            #bd-66cf4e4c1f574-grievanceFormSubmitContainer {
+                margin-top: 10px;
+                text-align: center;
+            }
+            #bd-66cf4e4c1f574-grievanceFormSubmitBtn {
+                padding: 8px;
+            }
+            #bd-66cf4e4c1f574-grievanceForm textarea {
+                width: 100%;
+            }
+            #bd-66cf4e4c1f574-grievanceForm select{
+                height: 21px;
+            }
         </style>
-        <div id="bd-66c8f6e11312c-formSelector">
-            <div>
-                <label for="bd-66c8f6e11312c-RequestTypeID" class=""><span class="bd-66c8f6e11312c-required-label">*</span> Reasonable Accommodation Program Type:</label>
-                <div style="padding: 10px 0;">
-                    <span>
-                        <select name="RequestTypeID" id="bd-66c8f6e11312c-RequestTypeID" required>
-                            <option value="" selected="selected">Please Select...</option>
-                            <option value="6">Grievance</option>
-                            <option value="7">Reasonable Accommodation</option>
-                            <option value="8">Audio/Video Recording Request</option>
-                            <option value="9">Interpreting Service Request</option>
-                        </select>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <hr />
-        <form id="bd-66c8f6e11312c-grievanceForm" accept-charset="utf-8" style="display:none;">
-            <h3 id="bd-66c8f6e11312c-grievanceFormTitle">Grievance</h3>
-            <div>
-                <h4>Requester Information</h4>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-RequesterFirstName" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Name:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="RequesterFirstName" value="" id="bd-66c8f6e11312c-RequesterFirstName" placeholder="First Name" required />
-                        <input type="text" name="RequesterLastName" value="" id="bd-66c8f6e11312c-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
+        <form id="bd-66cf4e4c1f574-grievanceForm" accept-charset="utf-8">
+            <div id="bd-66cf4e4c1f574-grievance-type-container">
+                <div class="bd-66cf4e4c1f574-control-label">Type of Grievance (select any that apply):</div>
+                <div id="bd-66cf4e4c1f574-grievance-type-options">
+                    <div>
+                        <label><input type="checkbox" name="GrievanceType[]" value="Accommodation Request" /> Accommodation Request</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="GrievanceType[]" value="Program/Service" /> Program/Service</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="GrievanceType[]" value="Facility Accessibility" /> Facility Accessibility</label>
+                    </div>
+                    <div>
+                        <label><input type="checkbox" name="GrievanceType[]" value="Other" /> Other:</label>
+                        <input type="text" name="GrievanceTypeOther" value="" />
                     </div>
                 </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-RequesterPhone" class="bd-66c8f6e11312c-control-label">Phone Number:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="tel" name="RequesterPhone" class="bd-66c8f6e11312c-poc" value="" id="bd-66c8f6e11312c-RequesterPhone" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-RequesterEmail" class="bd-66c8f6e11312c-control-label">Email:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="email" name="RequesterEmail" class="bd-66c8f6e11312c-poc" value="" id="bd-66c8f6e11312c-RequesterEmail" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <div class="bd-66c8f6e11312c-controls">
-                        <span class="bd-66c8f6e11312c-required-label">*</span> Please provide either an email or phone number.
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label class="bd-66c8f6e11312c-control-label" for="bd-66c8f6e11312c-SubmitterDifferent">Is submitter different:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <select name="SubmitterDifferent" id="bd-66c8f6e11312c-SubmitterDifferent" required>
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="bd-66c8f6e11312c-submitterDetails" style="display: none;">
-                    <hr />
-                    <h4>Submitter Information</h4>
-                    <div class="bd-66c8f6e11312c-control-group">
-                        <label for="bd-66c8f6e11312c-SubmitterFirstName" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Name:</label>
-                        <div class="bd-66c8f6e11312c-controls">
-                            <input type="text" name="SubmitterFirstName" value="" id="bd-66c8f6e11312c-SubmitterFirstName" placeholder="First Name" />
-                            <input type="text" name="SubmitterLastName" value="" id="bd-66c8f6e11312c-SubmitterLastName" placeholder="Last Name" aria-label="Last Name" />
-                        </div>
-                    </div>
-                    <div class="bd-66c8f6e11312c-control-group">
-                        <label for="bd-66c8f6e11312c-SubmitterPhone" class="bd-66c8f6e11312c-control-label">Phone Number:</label>
-                        <div class="bd-66c8f6e11312c-controls">
-                            <input type="tel" name="SubmitterPhone" class="bd-66c8f6e11312c-poc" data-submitter="1" value="" id="bd-66c8f6e11312c-SubmitterPhone" />
-                        </div>
-                    </div>
-                    <div class="bd-66c8f6e11312c-control-group">
-                        <label for="bd-66c8f6e11312c-SubmitterEmail" class="bd-66c8f6e11312c-control-label">Email:</label>
-                        <div class="bd-66c8f6e11312c-controls">
-                            <input type="email" name="SubmitterEmail" class="bd-66c8f6e11312c-poc" data-submitter="1" value="" id="bd-66c8f6e11312c-SubmitterEmail" />
-                        </div>
-                    </div>
-                    <div class="bd-66c8f6e11312c-control-group">
-                        <div class="bd-66c8f6e11312c-controls">
-                            <span class="bd-66c8f6e11312c-required-label">*</span> Please provide either an email or phone number.
-                        </div>
-                    </div>
-                    <div class="bd-66c8f6e11312c-control-group" style="margin-bottom: 10px;">
-                        <label for="bd-66c8f6e11312c-SubmitterTitle" class="bd-66c8f6e11312c-control-label">Relationship to Requester:</label>
-                        <div class="bd-66c8f6e11312c-controls">
-                            <input type="text" name="SubmitterTitle" value="" id="bd-66c8f6e11312c-SubmitterTitle" />
-                        </div>
-                    </div><br />
-                </div>
-                <hr />
-                <h4>Location Information</h4>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-LocationAddress" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Location:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="LocationAddress" value="" id="bd-66c8f6e11312c-LocationAddress" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-ActualAddress" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Address:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <span>
-                            <input type="text" name="ActualAddress" value="" id="bd-66c8f6e11312c-ActualAddress" required />
-                        </span>
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> City/State/Zip:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <span>
-                            <input type="text" name="LocationCity" value="" id="bd-66c8f6e11312c-LocationCity" aria-label="City" required />
-                        </span>
-                        <span>
-                            <select name="LocationState" id="bd-66c8f6e11312c-LocationState" aria-label="State" required>
-                                <option value="AL">AL</option><option value="AK">AK</option><option value="AS">AS</option><option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option><option value="DC">DC</option><option value="FM">FM</option><option value="FL">FL</option><option value="GA">GA</option><option value="GU">GU</option><option value="HI">HI</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="ME">ME</option><option value="MH">MH</option><option value="MD">MD</option><option value="MA">MA</option><option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option><option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option><option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option><option value="ND">ND</option><option value="MP">MP</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PW">PW</option><option value="PA">PA</option><option value="PR">PR</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option><option value="VI">VI</option><option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option>                            </select>
-                        </span>
-                        <span>
-                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-66c8f6e11312c-LocationZip" aria-label="ZIP Code" required />
-                        </span>
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-LocationNote" class="bd-66c8f6e11312c-control-label">Location Notes:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <textarea name="LocationNote" cols="40" rows="3" id="bd-66c8f6e11312c-LocationNote"></textarea>
-                    </div>
-                </div>
-                <hr />
-                <h4>Request Information</h4>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label class="bd-66c8f6e11312c-control-label" for="bd-66c8f6e11312c-ADAGrievance">Is this ADA-related:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <select name="ADAGrievance" id="bd-66c8f6e11312c-ADAGrievance" required>
-                            <option value="-1">Undetermined</option>
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label class="bd-66c8f6e11312c-control-label" for="bd-66c8f6e11312c-IncidentDate">Date of Incident:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="date" size="16" name="IncidentDate" id="bd-66c8f6e11312c-IncidentDate" />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-RequestReason" class="bd-66c8f6e11312c-control-label">Nature of Request:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <textarea name="RequestReason" cols="40" rows="3" id="bd-66c8f6e11312c-RequestReason"></textarea>
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-Notes" class="bd-66c8f6e11312c-control-label">Notes:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <textarea name="Notes" cols="40" rows="3" id="bd-66c8f6e11312c-Notes"></textarea>
-                    </div>
+                <div>
+                    <label for="bd-66cf4e4c1f574-cf_993" class="bd-66cf4e4c1f574-control-label">Department/Program:</label>
+                    <input type="text" name="cf_993" value="" id="bd-66cf4e4c1f574-cf_993" required />
                 </div>
             </div>
             <div>
-                <button id="bd-66c8f6e11312c-grievanceFormSubmitBtn">Submit</button>
-            </div>
-        </form>
-        <form id="bd-66c8f6e11312c-raCameraForm" accept-charset="utf-8" style="display:none;">
-            <h3>Audio/Video Recording Request</h3>
-            <div>
-                <p>Consistent with La. R.S. 17:1948, a parent or legal guardian may request the installation of an audio and video camera in a special education self-contained classroom or other special education setting. For more information, please visit the Exceptional Student Services webpage. This request will be in effect for one academic year.</p>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-AcademicYear" class="bd-66c8f6e11312c-control-label">Year:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="cf_811" value="" id="bd-66c8f6e11312c-raCameraForm-AcademicYear" />
-                    </div>
+                <h4>CONTACT INFORMATION</h4>
+                <table class="bd-66cf4e4c1f574-table">
+                    <tr>
+                        <th>Reporting Individual</th>
+                        <th>On Behalf of:<br><sub>(if different than Reporting Individual)</sub></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><label>Full Name:</label></div>
+                            <div>
+                                <input type="text" name="RequesterFirstName" value="" id="bd-66cf4e4c1f574-RequesterFirstName" placeholder="First Name" aria-label="Reporting Individual First Name" required />
+                                <input type="text" name="RequesterLastName" value="" id="bd-66cf4e4c1f574-RequesterLastName" placeholder="Last Name" aria-label="Reporting Individual Last Name" required />
+                            </div>
+                        </td>
+                        <td>
+                            <div><label>Full Name:</label></div>
+                            <div>
+                                <input type="text" name="SubmitterFirstName" value="" id="bd-66cf4e4c1f574-SubmitterFirstName" placeholder="First Name" aria-label="On Behalf of First Name" />
+                                <input type="text" name="SubmitterLastName" value="" id="bd-66cf4e4c1f574-SubmitterLastName" placeholder="Last Name" aria-label="On Behalf of Last Name" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><label>Address:</label></div>
+                            <div><input type="text" name="RequesterAddress" value="" id="bd-66cf4e4c1f574-RequesterAddress" placeholder="Address" aria-label="Reporting Individual Address" required /></div>
+                        </td>
+                        <td>
+                            <div><label>Address:</label></div>
+                            <div><input type="text" name="SubmitterAddress" value="" id="bd-66cf4e4c1f574-SubmitterAddress" placeholder="Address" aria-label="On Behalf of Address" /></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><label>City, State, and Zip Code:</label></div>
+                            <div>
+                                <input type="text" name="RequesterCity" value="" id="bd-66cf4e4c1f574-RequesterCity" placeholder="City" aria-label="Reporting Individual City" required />
+                                <select name="RequesterState" id="bd-66cf4e4c1f574-RequesterState" aria-label="Reporting Individual State" required>
+                                                                    <option value="AL">AL</option>
+                                                                    <option value="AK">AK</option>
+                                                                    <option value="AS">AS</option>
+                                                                    <option value="AZ">AZ</option>
+                                                                    <option value="AR">AR</option>
+                                                                    <option value="CA">CA</option>
+                                                                    <option value="CO">CO</option>
+                                                                    <option value="CT">CT</option>
+                                                                    <option value="DE">DE</option>
+                                                                    <option value="DC">DC</option>
+                                                                    <option value="FM">FM</option>
+                                                                    <option value="FL">FL</option>
+                                                                    <option value="GA">GA</option>
+                                                                    <option value="GU">GU</option>
+                                                                    <option value="HI">HI</option>
+                                                                    <option value="ID">ID</option>
+                                                                    <option value="IL">IL</option>
+                                                                    <option value="IN">IN</option>
+                                                                    <option value="IA">IA</option>
+                                                                    <option value="KS">KS</option>
+                                                                    <option value="KY">KY</option>
+                                                                    <option value="LA">LA</option>
+                                                                    <option value="ME">ME</option>
+                                                                    <option value="MH">MH</option>
+                                                                    <option value="MD">MD</option>
+                                                                    <option value="MA">MA</option>
+                                                                    <option value="MI">MI</option>
+                                                                    <option value="MN">MN</option>
+                                                                    <option value="MS">MS</option>
+                                                                    <option value="MO">MO</option>
+                                                                    <option value="MT">MT</option>
+                                                                    <option value="NE">NE</option>
+                                                                    <option value="NV">NV</option>
+                                                                    <option value="NH">NH</option>
+                                                                    <option value="NJ">NJ</option>
+                                                                    <option value="NM">NM</option>
+                                                                    <option value="NY">NY</option>
+                                                                    <option value="NC">NC</option>
+                                                                    <option value="ND">ND</option>
+                                                                    <option value="MP">MP</option>
+                                                                    <option value="OH">OH</option>
+                                                                    <option value="OK">OK</option>
+                                                                    <option value="OR">OR</option>
+                                                                    <option value="PW">PW</option>
+                                                                    <option value="PA">PA</option>
+                                                                    <option value="PR">PR</option>
+                                                                    <option value="RI">RI</option>
+                                                                    <option value="SC">SC</option>
+                                                                    <option value="SD">SD</option>
+                                                                    <option value="TN">TN</option>
+                                                                    <option value="TX">TX</option>
+                                                                    <option value="UT">UT</option>
+                                                                    <option value="VT">VT</option>
+                                                                    <option value="VI">VI</option>
+                                                                    <option value="VA" selected="selected">VA</option>
+                                                                    <option value="WA">WA</option>
+                                                                    <option value="WV">WV</option>
+                                                                    <option value="WI">WI</option>
+                                                                    <option value="WY">WY</option>
+                                                                </select>
+                                <input type="text" name="RequesterZip" value="" id="bd-66cf4e4c1f574-RequesterZip" placeholder="Zip Code" aria-label="Reporting Individual Zip Code" required />
+                            </div>
+                        </td>
+                        <td>
+                            <div><label>City, State, and Zip Code:</label></div>
+                            <div>
+                                <input type="text" name="SubmitterCity" value="" id="bd-66cf4e4c1f574-SubmitterCity" placeholder="City" aria-label="On Behalf of City" />
+                                <select name="SubmitterState" id="bd-66cf4e4c1f574-SubmitterState" aria-label="On Behalf of State">
+                                    <option value="">State</option>
+                                                                        <option value="AL">AL</option>
+                                                                        <option value="AK">AK</option>
+                                                                        <option value="AS">AS</option>
+                                                                        <option value="AZ">AZ</option>
+                                                                        <option value="AR">AR</option>
+                                                                        <option value="CA">CA</option>
+                                                                        <option value="CO">CO</option>
+                                                                        <option value="CT">CT</option>
+                                                                        <option value="DE">DE</option>
+                                                                        <option value="DC">DC</option>
+                                                                        <option value="FM">FM</option>
+                                                                        <option value="FL">FL</option>
+                                                                        <option value="GA">GA</option>
+                                                                        <option value="GU">GU</option>
+                                                                        <option value="HI">HI</option>
+                                                                        <option value="ID">ID</option>
+                                                                        <option value="IL">IL</option>
+                                                                        <option value="IN">IN</option>
+                                                                        <option value="IA">IA</option>
+                                                                        <option value="KS">KS</option>
+                                                                        <option value="KY">KY</option>
+                                                                        <option value="LA">LA</option>
+                                                                        <option value="ME">ME</option>
+                                                                        <option value="MH">MH</option>
+                                                                        <option value="MD">MD</option>
+                                                                        <option value="MA">MA</option>
+                                                                        <option value="MI">MI</option>
+                                                                        <option value="MN">MN</option>
+                                                                        <option value="MS">MS</option>
+                                                                        <option value="MO">MO</option>
+                                                                        <option value="MT">MT</option>
+                                                                        <option value="NE">NE</option>
+                                                                        <option value="NV">NV</option>
+                                                                        <option value="NH">NH</option>
+                                                                        <option value="NJ">NJ</option>
+                                                                        <option value="NM">NM</option>
+                                                                        <option value="NY">NY</option>
+                                                                        <option value="NC">NC</option>
+                                                                        <option value="ND">ND</option>
+                                                                        <option value="MP">MP</option>
+                                                                        <option value="OH">OH</option>
+                                                                        <option value="OK">OK</option>
+                                                                        <option value="OR">OR</option>
+                                                                        <option value="PW">PW</option>
+                                                                        <option value="PA">PA</option>
+                                                                        <option value="PR">PR</option>
+                                                                        <option value="RI">RI</option>
+                                                                        <option value="SC">SC</option>
+                                                                        <option value="SD">SD</option>
+                                                                        <option value="TN">TN</option>
+                                                                        <option value="TX">TX</option>
+                                                                        <option value="UT">UT</option>
+                                                                        <option value="VT">VT</option>
+                                                                        <option value="VI">VI</option>
+                                                                        <option value="VA">VA</option>
+                                                                        <option value="WA">WA</option>
+                                                                        <option value="WV">WV</option>
+                                                                        <option value="WI">WI</option>
+                                                                        <option value="WY">WY</option>
+                                                                    </select>
+                                <input type="text" name="SubmitterZip" value="" id="bd-66cf4e4c1f574-SubmitterZip" placeholder="Zip Code" aria-label="On Behalf of Zip Code" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><label>Phone:</label></div>
+                            <div><input type="tel" name="RequesterPhone" value="" class="bd-66cf4e4c1f574-poc" id="bd-66cf4e4c1f574-RequesterPhone" placeholder="Phone Number" aria-label="Reporting Individual Phone" required /></div>
+                        </td>
+                        <td>
+                            <div><label>Phone:</label></div>
+                            <div><input type="tel" name="SubmitterPhone" value="" class="bd-66cf4e4c1f574-poc" id="bd-66cf4e4c1f574-SubmitterPhone" placeholder="Phone Number" aria-label="On Behalf of Phone" data-submitter="1" /></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><label>E-mail:</label></div>
+                            <div><input type="email" name="RequesterEmail" value="" class="bd-66cf4e4c1f574-poc" id="bd-66cf4e4c1f574-RequesterEmail" placeholder="Email" aria-label="Reporting Individual Email" required /></div>
+                        </td>
+                        <td>
+                            <div><label>E-mail:</label></div>
+                            <div><input type="email" name="SubmitterEmail" value="" class="bd-66cf4e4c1f574-poc" id="bd-66cf4e4c1f574-SubmitterEmail" placeholder="Email" aria-label="On Behalf of Email" data-submitter="1" /></div>
+                        </td>
+                    </tr>
+                </table>
+
+                <h4>COMPLAINT/INCIDENT DETAILS</h4>
+                <div class="bd-66cf4e4c1f574-control">
+                    <label class="bd-66cf4e4c1f574-control-label-inline">Date of Incident:</label>
+                    <input type="date" name="IncidentDate" id="bd-66cf4e4c1f574-IncidentDate" size="16" required />
                 </div>
-                <h3>Requestor Information:</h3>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-RequesterFirstName" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Name:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="RequesterFirstName" value="" id="bd-66c8f6e11312c-raCameraForm-RequesterFirstName" placeholder="First Name" required />
-                        <input type="text" name="RequesterLastName" value="" id="bd-66c8f6e11312c-raCameraForm-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
-                    </div>
+                <div class="bd-66cf4e4c1f574-control">
+                    <label for="bd-66cf4e4c1f574-ActualAddress" class="bd-66cf4e4c1f574-control-label-inline">Address:</label>
+                    <input type="text" name="ActualAddress" value="" id="bd-66cf4e4c1f574-ActualAddress" required />
                 </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-RequesterPhone" class="bd-66c8f6e11312c-control-label">Phone Number:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="tel" name="RequesterPhone" class="bd-66c8f6e11312c-poc" value="" id="bd-66c8f6e11312c-raCameraForm-RequesterPhone" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-RequesterEmail" class="bd-66c8f6e11312c-control-label">Email:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="email" name="RequesterEmail" class="bd-66c8f6e11312c-poc" value="" id="bd-66c8f6e11312c-raCameraForm-RequesterEmail" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <div class="bd-66c8f6e11312c-controls">
-                        <span class="bd-66c8f6e11312c-required-label">*</span> Please provide either an email or phone number.
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label class="bd-66c8f6e11312c-control-label" for="bd-66c8f6e11312c-RelationshipToChild">Relationship to child:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <select name="cf_816" id="bd-66c8f6e11312c-RelationshipToChild" required>
-                            <option value="Parents">Parent(s)</option>
-                            <option value="Legal Guardians">Legal Guardian(s)</option>
-                            <option value="Adult Student">Adult Student</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-ChildName" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Child's full name:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="cf_814" value="" id="bd-66c8f6e11312c-raCameraForm-ChildName" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-Dob" class="bd-66c8f6e11312c-control-label">Date of Birth:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="date" size="16" name="cf_815" value="" id="bd-66c8f6e11312c-raCameraForm-Dob" />
-                    </div>
-                </div>
-                <h3>School Information:</h3>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-LocationAddress" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> School:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="LocationAddress" value="" id="bd-66c8f6e11312c-raCameraForm-LocationAddress" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-ActualAddress" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Address:</label>
-                    <div class="bd-66c8f6e11312c-controls">
+                <div class="bd-66cf4e4c1f574-control">
+                    <div>
+                        <label class="bd-66cf4e4c1f574-control-label-inline">City/State/Zip:</label>
                         <span>
-                            <input type="text" name="ActualAddress" value="" id="bd-66c8f6e11312c-raCameraForm-ActualAddress" required />
+                            <input type="text" name="LocationCity" value="" id="bd-66cf4e4c1f574-LocationCity" aria-label="City" required />
                         </span>
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> City/State/Zip:</label>
-                    <div class="bd-66c8f6e11312c-controls">
                         <span>
-                            <input type="text" name="LocationCity" value="" id="bd-66c8f6e11312c-raCameraForm-LocationCity" aria-label="City" required />
-                        </span>
-                        <span>
-                            <select name="LocationState" id="bd-66c8f6e11312c-raCameraForm-LocationState" aria-label="State" required>
-                                <option value="AL">AL</option><option value="AK">AK</option><option value="AS">AS</option><option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option><option value="DC">DC</option><option value="FM">FM</option><option value="FL">FL</option><option value="GA">GA</option><option value="GU">GU</option><option value="HI">HI</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="ME">ME</option><option value="MH">MH</option><option value="MD">MD</option><option value="MA">MA</option><option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option><option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option><option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option><option value="ND">ND</option><option value="MP">MP</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PW">PW</option><option value="PA">PA</option><option value="PR">PR</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option><option value="VI">VI</option><option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option>                            </select>
-                        </span>
-                        <span>
-                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-66c8f6e11312c-raCameraForm-LocationZip" aria-label="ZIP Code" required />
-                        </span>
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-Grade" class="bd-66c8f6e11312c-control-label">Grade:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="cf_817" value="" id="bd-66c8f6e11312c-raCameraForm-Grade" />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-RoomNumber" class="bd-66c8f6e11312c-control-label">Classroom / Room Number:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="cf_813" value="" id="bd-66c8f6e11312c-raCameraForm-RoomNumber" />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raCameraForm-Teacher" class="bd-66c8f6e11312c-control-label">Teacher's name:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="cf_818" value="" id="bd-66c8f6e11312c-raCameraForm-Teacher" />
-                    </div>
-                </div>
-            </div>
-            <div>
-                <button id="bd-66c8f6e11312c-raCameraSubmitBtn">Submit</button>
-            </div>
-            <hr />
-            <ul>
-                <li>This request is valid only for the school year indicated above. A new request must be submitted for any subsequent school years on a yearly basis.</li>
-                <li>An acknowledgement letter will be sent to you within 5-7 days of receipt of the request.</li>
-                <li>A Notice of acceptance or denial will be sent to you within ten (10) days.</li>
-                <li>Please submit this form to the DDR utilizing the district's website/system.</li>
-                <li>We will strive to install the camera within 30 days of the approved request under normal circumstances. The district will reach out to you to discuss requests made late in the school year for timelines and options</li>
-            </ul>
-        </form>
-        <form id="bd-66c8f6e11312c-raInterpreterForm" accept-charset="utf-8" style="display:none;">
-            <input type="hidden" name="SubmitterDifferent" value="yes" />
-            <h3>Interpreting Service Request</h3>
-            <div>
-                <h4>Requester Information</h4>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-RequesterFirstName" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Name:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="RequesterFirstName" value="" id="bd-66c8f6e11312c-raInterpreterForm-RequesterFirstName" placeholder="First Name" required />
-                        <input type="text" name="RequesterLastName" value="" id="bd-66c8f6e11312c-raInterpreterForm-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-RequesterPhone" class="bd-66c8f6e11312c-control-label">Phone Number:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="tel" name="RequesterPhone" class="bd-66c8f6e11312c-poc" value="" id="bd-66c8f6e11312c-raInterpreterForm-RequesterPhone" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-RequesterEmail" class="bd-66c8f6e11312c-control-label">Email:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="email" name="RequesterEmail" class="bd-66c8f6e11312c-poc" value="" id="bd-66c8f6e11312c-raInterpreterForm-RequesterEmail" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <div class="bd-66c8f6e11312c-controls">
-                        <span class="bd-66c8f6e11312c-required-label">*</span> Please provide either an email or phone number.
-                    </div>
-                </div>
-                <h4>Contact Information</h4>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-SubmitterFirstName" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Contact Person/Doctor:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="SubmitterFirstName" value="" id="bd-66c8f6e11312c-raInterpreterForm-SubmitterFirstName" placeholder="First Name" required />
-                        <input type="text" name="SubmitterLastName" value="" id="bd-66c8f6e11312c-SubmitterLastName" placeholder="Last Name" aria-label="Last Name" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-SubmitterPhone" class="bd-66c8f6e11312c-control-label">Contact Phone:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="tel" name="SubmitterPhone" class="bd-66c8f6e11312c-poc" data-submitter="1" value="" id="bd-66c8f6e11312c-raInterpreterForm-SubmitterPhone" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-SubmitterEmail" class="bd-66c8f6e11312c-control-label">Contact Email:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="email" name="SubmitterEmail" class="bd-66c8f6e11312c-poc" data-submitter="1" value="" id="bd-66c8f6e11312c-raInterpreterForm-SubmitterEmail" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <div class="bd-66c8f6e11312c-controls">
-                        <span class="bd-66c8f6e11312c-required-label">*</span> Please provide either an email or phone number.
-                    </div>
-                </div>
-                <h4>Location Information</h4>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-LocationAddress" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Location:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="LocationAddress" value="" id="bd-66c8f6e11312c-raInterpreterForm-LocationAddress" required />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-ActualAddress" class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> Address:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <span>
-                            <input type="text" name="ActualAddress" value="" id="bd-66c8f6e11312c-raInterpreterForm-ActualAddress" required />
-                        </span>
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label class="bd-66c8f6e11312c-control-label"><span class="bd-66c8f6e11312c-required-label">*</span> City/State/Zip:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <span>
-                            <input type="text" name="LocationCity" value="" id="bd-66c8f6e11312c-raInterpreterForm-LocationCity" aria-label="City" required />
-                        </span>
-                        <span>
-                            <select name="LocationState" id="bd-66c8f6e11312c-raInterpreterForm-LocationState" aria-label="State" required>
-                                <option value="AL">AL</option><option value="AK">AK</option><option value="AS">AS</option><option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option><option value="DC">DC</option><option value="FM">FM</option><option value="FL">FL</option><option value="GA">GA</option><option value="GU">GU</option><option value="HI">HI</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="ME">ME</option><option value="MH">MH</option><option value="MD">MD</option><option value="MA">MA</option><option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option><option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option><option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option><option value="ND">ND</option><option value="MP">MP</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PW">PW</option><option value="PA">PA</option><option value="PR">PR</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option><option value="VI">VI</option><option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option>
+                            <select name="LocationState" id="bd-66cf4e4c1f574-LocationState" aria-label="State" required>
+                                <option value="VA">VA</option>
                             </select>
                         </span>
                         <span>
-                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-66c8f6e11312c-raInterpreterForm-LocationZip" aria-label="ZIP Code" required />
+                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-66cf4e4c1f574-LocationZip" aria-label="ZIP Code" required />
                         </span>
                     </div>
                 </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-FloorNumber" class="bd-66c8f6e11312c-control-label">Floor Number:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="cf_812" value="" id="bd-66c8f6e11312c-raInterpreterForm-FloorNumber" />
+                <div class="bd-66cf4e4c1f574-control">
+                    <div><label for="bd-66cf4e4c1f574-Description" class="bd-66cf4e4c1f574-control-label">Describe the complaint/incident:</label></div>
+                    <div><textarea name="cf_994" cols="40" rows="3" id="bd-66cf4e4c1f574-Description" required></textarea><div>
+                </div>
+                <div class="bd-66cf4e4c1f574-control">
+                    <div><label for="bd-66cf4e4c1f574-PriorResolution" class="bd-66cf4e4c1f574-control-label">Have efforts been made to resolve this complaint through the Department in which the alleged discrimination took place? If yes, please describe the efforts that have been made:</label></div>
+                    <div>
+                        <textarea name="cf_995" cols="40" rows="4" id="bd-66cf4e4c1f574-PriorResolution" required></textarea>
                     </div>
                 </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-RoomNumber" class="bd-66c8f6e11312c-control-label">Suite Number:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="cf_813" value="" id="bd-66c8f6e11312c-raInterpreterForm-RoomNumber" />
-                    </div>
-                </div>
-                <h4>Client Information</h4>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-ChildName" class="bd-66c8f6e11312c-control-label">Client/Patient:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="text" name="cf_814" value="" id="bd-66c8f6e11312c-raInterpreterForm-ChildName" />
-                    </div>
-                </div>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-Dob" class="bd-66c8f6e11312c-control-label">Date of Birth:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <input type="date" size="16" name="cf_815" value="" id="bd-66c8f6e11312c-raInterpreterForm-Dob" />
-                    </div>
-                </div>
-                <h4>Additional Information</h4>
-                <div class="bd-66c8f6e11312c-control-group">
-                    <label for="bd-66c8f6e11312c-raInterpreterForm-Notes" class="bd-66c8f6e11312c-control-label">Notes:</label>
-                    <div class="bd-66c8f6e11312c-controls">
-                        <textarea name="Notes" cols="40" rows="3" id="bd-66c8f6e11312c-raInterpreterForm-Notes"></textarea>
+                <div class="bd-66cf4e4c1f574-control">
+                    <div><label for="bd-66cf4e4c1f574-RemedySought" class="bd-66cf4e4c1f574-control-label">Remedy Sought:</label></div>
+                    <div>
+                        <textarea name="cf_996" cols="40" rows="3" id="bd-66cf4e4c1f574-RemedySought" required></textarea>
                     </div>
                 </div>
             </div>
-            <div>
-                <button id="bd-66c8f6e11312c-raInterpreterSubmitBtn">Submit</button>
+            <div id="bd-66cf4e4c1f574-grievanceFormSubmitContainer">
+                <button id="bd-66cf4e4c1f574-grievanceFormSubmitBtn">Submit</button>
             </div>
         </form>
     `;
     document.getElementById("bd-grievance").innerHTML = grievanceTemplate;
 
-    //add listeners
-    document.getElementById("bd-66c8f6e11312c-RequestTypeID").addEventListener("change", swapGrievanceForms);
-    document.getElementById("bd-66c8f6e11312c-grievanceFormSubmitBtn").addEventListener("click", submitGrievanceForm);
-    document.getElementById("bd-66c8f6e11312c-raCameraSubmitBtn").addEventListener("click", submitGrievanceForm);
-    document.getElementById("bd-66c8f6e11312c-raInterpreterSubmitBtn").addEventListener("click", submitGrievanceForm);
-    document.getElementById("bd-66c8f6e11312c-SubmitterDifferent").addEventListener("change", submitterDifferent);
-    const pocFields = document.querySelectorAll('.bd-66c8f6e11312c-poc');
+    document.getElementById("bd-66cf4e4c1f574-grievanceFormSubmitBtn").addEventListener("click", submitGrievanceForm);
+    const pocFields = document.querySelectorAll('.bd-66cf4e4c1f574-poc');
     for (let i = 0; i < pocFields.length; i++) {
         pocFields[i].addEventListener('change', requesterPhoneEmailValidation);
     }
@@ -449,40 +337,88 @@ initGrievanceForm();
 function submitGrievanceForm(e) {
     e.preventDefault();
 
-    const selectedForm = document.getElementById("bd-66c8f6e11312c-RequestTypeID").value;
-    let formId = false;
+    let submitterDifferent = submitterDifferentCheck();
 
-    if (selectedForm == 6 || selectedForm == 7) {
-        formId = "grievanceForm";
-    } else if (selectedForm == 8) {
-        formId = "raCameraForm";
-    } else if (selectedForm == 9) {
-        formId = "raInterpreterForm";
-    }
-
-    if (!formId) {
-        return;
-    }
-
-    const form = document.getElementById("bd-66c8f6e11312c-" + formId);
+    let form = document.getElementById("bd-66cf4e4c1f574-grievanceForm");
     form.classList.add('validated');
-    if (form.checkValidity()) {
-        const formFields = document.getElementById("bd-66c8f6e11312c-" + formId).elements;
-        const selectedForm = document.getElementById("bd-66c8f6e11312c-RequestTypeID").value;
-        let postObj = { RequestTypeID: selectedForm };
+
+    if (grievanceTypeValidation() && form.checkValidity()) {
+        const formFields = document.getElementById("bd-66cf4e4c1f574-grievanceForm").elements;
+        let postObj = {};
         let customFields = {};
+        let grievanceTypes = [];
         for (let i = 0; i < formFields.length; i++) {
             const item = formFields.item(i);
             if (item.name) {
                 if (item.name.startsWith('cf_')) {
                     customFields[item.name.substring(3)] = item.value;
+                } else if (item.type === 'radio') {
+                    if (item.checked) {
+                        postObj[item.name] = item.value;
+                    }
+                } else if (item.type === 'checkbox' && item.name === 'GrievanceType[]') {
+                    if (item.checked) {
+                        grievanceTypes.push(item.value);
+                    }
                 } else {
                     postObj[item.name] = item.value;
                 }
             }
         }
-        if (Object.keys(customFields).length > 0) {
-            postObj.ExtraData = { Custom: customFields };
+
+        if (!postObj.SubmitterCity) {
+            postObj.SubmitterState = "";
+        }
+
+        //Handle Grievance types custom field
+        if (grievanceTypes.length > 0) {
+            let grievanceTypesString = grievanceTypes.join(', ');
+            if (postObj.GrievanceTypeOther) {
+                grievanceTypesString += `: ${postObj.GrievanceTypeOther}`;
+            }
+            customFields[992] = grievanceTypesString;
+        }
+        delete postObj.GrievanceTypeOther;
+
+        //Add Additional required fields
+        postObj.RequestTypeID = '3';
+        postObj.ADAGrievance = '-1';
+        postObj.LocationAddress = 'General Location';
+        postObj.SubmitterDifferent = submitterDifferent;
+        postObj.ExtraData = { Custom: customFields};
+        if (77) {
+            postObj.CompanyID = '77';
+        }
+
+        // If both "Reporting Individual" and "On Behalf Of" are filled out,
+        // set the Requester field to the "On Behalf Of" data and the Submitter field to the "Reporting Individual" data.
+        if (submitterDifferent == "yes") {
+            let tempFirstName = postObj.RequesterFirstName;
+            let tempLastName = postObj.RequesterLastName;
+            let tempAddress = postObj.RequesterAddress;
+            let tempCity = postObj.RequesterCity;
+            let tempState = postObj.RequesterState;
+            let tempZip = postObj.RequesterZip;
+            let tempPhone = postObj.RequesterPhone;
+            let tempEmail = postObj.RequesterEmail;
+
+            postObj.RequesterFirstName = postObj.SubmitterFirstName;
+            postObj.RequesterLastName = postObj.SubmitterLastName;
+            postObj.RequesterAddress = postObj.SubmitterAddress;
+            postObj.RequesterCity = postObj.SubmitterCity;
+            postObj.RequesterState = postObj.SubmitterState;
+            postObj.RequesterZip = postObj.SubmitterZip;
+            postObj.RequesterPhone = postObj.SubmitterPhone;
+            postObj.RequesterEmail = postObj.SubmitterEmail;
+
+            postObj.SubmitterFirstName = tempFirstName;
+            postObj.SubmitterLastName = tempLastName;
+            postObj.SubmitterAddress = tempAddress;
+            postObj.SubmitterCity = tempCity;
+            postObj.SubmitterState = tempState;
+            postObj.SubmitterZip = tempZip;
+            postObj.SubmitterPhone = tempPhone;
+            postObj.SubmitterEmail = tempEmail;
         }
 
         //POST to BlueDAG API
@@ -490,47 +426,149 @@ function submitGrievanceForm(e) {
         xhr.responseType = "json";
         xhr.onreadystatechange = function () {
             if (this.readyState == 4) {
+                let failureContent = "An error occurred while submitting your grievance. Please try again later. <button onclick=\"window.location.reload()\">Retry</button>";
                 if (this.status == 200) {
-                    document.getElementById("bd-grievance").innerHTML = "Your grievance has been submitted.";
+                    if (this.response.success) {
+                        document.getElementById("bd-grievance").innerHTML = "            </pre>
+                <style>
+            .errorTable,
+            .debugTable {
+                font-family: monospace;
+                width: 100%;
+                line-height: 1.5em;
+            }
+
+            .errorTable {
+                color: white;
+                background-color: black;
+                margin-bottom: 15px;
+            }
+
+            .debugTable {
+                color: lightgray;
+                background-color: #4949b3;
+            }
+
+            .errorTable th,
+            .debugTable th {
+                color: yellow;
+                background-color: maroon;
+                font-size: 1.2em;
+            }
+
+            .debugTable tr {
+                border-top: 1px solid yellow;
+            }
+
+            .errorField {
+                text-align: right;
+            }
+
+            .errorValue {
+                text-align: left;
+                padding-left: 15px;
+            }
+
+            .errorContainer {
+                border: 1px dashed gray;
+                padding: 5px;
+            }
+        </style>
+        <div id="container" class="errorContainer">
+            <h1>500 Server error</h1>
+            <p>Oops! Something went wrong. We're working on it.</p>
+            <p class="errorOut">Error code: 0x13</p>
+            <div class=" errorSpacing">
+                <table class="errorTable">
+                    <thead>
+                        <th class="errorValue">Type:</th>
+                        <th class="errorValue">Message:</th>
+                        <th class="errorField">File:</th>
+                        <th class="errorValue">Line:</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="errorValue">Warning</td>
+                            <td class="errorValue">Array to string conversion</td>
+                            <td class="errorField">custom/loudounWebform.php</td>
+                            <td class="errorValue">332</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="debugTable">
+                    <thead>
+                        <th class="errorValue">#</th>
+                        <th class="errorValue">Call</th>
+                        <th class="errorValue">File</th>
+                        <th class="errorValue">Line</th>
+                    </thead>
+                                                <tr>
+                                <td class="errorValue">1</td>
+                                <td class="errorValue">_error_handler(integer,string,string,integer)</td>
+                                <td class="errorValue">custom/loudounWebform.php</td>
+                                <td class="errorValue">ln 332</td>
+                            </tr>
+                                                    <tr>
+                                <td class="errorValue">2</td>
+                                <td class="errorValue">include(string)</td>
+                                <td class="errorValue">core/Loader.php</td>
+                                <td class="errorValue">ln 969</td>
+                            </tr>
+                                                    <tr>
+                                <td class="errorValue">3</td>
+                                <td class="errorValue">CI_Loader->_ci_load(array)</td>
+                                <td class="errorValue">core/TS_Loader.php</td>
+                                <td class="errorValue">ln 26</td>
+                            </tr>
+                                                    <tr>
+                                <td class="errorValue">4</td>
+                                <td class="errorValue">TS_Loader->view(string,array,boolean)</td>
+                                <td class="errorValue">controllers/Client.php</td>
+                                <td class="errorValue">ln 1872</td>
+                            </tr>
+                                                    <tr>
+                                <td class="errorValue">5</td>
+                                <td class="errorValue">Client->loudounGrievanceForm(array)</td>
+                                <td class="errorValue">controllers/Client.php</td>
+                                <td class="errorValue">ln 1632</td>
+                            </tr>
+                                                    <tr>
+                                <td class="errorValue">6</td>
+                                <td class="errorValue">Client->getExternalIntakeFile(array)</td>
+                                <td class="errorValue">controllers/Client.php</td>
+                                <td class="errorValue">ln 1540</td>
+                            </tr>
+                                                    <tr>
+                                <td class="errorValue">7</td>
+                                <td class="errorValue">Client->getCustomExternalIntakeFile(string)</td>
+                                <td class="errorValue">core/CodeIgniter.php</td>
+                                <td class="errorValue">ln 533</td>
+                            </tr>
+                                                    <tr>
+                                <td class="errorValue">8</td>
+                                <td class="errorValue">require_once(string)</td>
+                                <td class="errorValue">bluedag.dev/index.php</td>
+                                <td class="errorValue">ln 62</td>
+                            </tr>
+                                        </table>
+            </div>
+        </div>
+                <pre>
+Array";
+                                            } else {
+                        console.log(this.response.message);
+                        document.getElementById("bd-grievance").innerHTML = failureContent;
+                    }
                 } else {
-                    let failureContent = "An error occurred while submitting your grievance. Please try again later. <button onclick=\"window.location.reload()\">Retry</button>";
                     document.getElementById("bd-grievance").innerHTML = failureContent;
                 }
             }
         };
-        xhr.open("POST", '"https:\/\/api.dev.bluedag.com\/js\/grievance\/submit?jsAuth=Bj0twoiOr3hGp0imzwFmYvVXoeK9SftCBwMBaYZR8Ww4Y4MgQAR8ZoZbw35kx1lp"');
+        xhr.open("POST", "https:\/\/api.dev.bluedag.com\/js\/grievance\/submit?jsAuth=phLOUekoMdL1McMaYbFWjYv64aUiMegUUosbMwDvYykALLp6ZTuiWAahciSXxlML");
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(postObj));
 
         document.getElementById("bd-grievance").innerHTML = "Submitting your grievance...";
-    } else {
-        console.log("Form validation failed. Ensure all required form fields are completed.");
-    }
-}
-
-function submitterDifferent(e) {
-    const isSubmitterDifferent = e.target.value;
-    if (typeof isSubmitterDifferent !== "undefined") {
-        let submitterFields = document.getElementById("bd-66c8f6e11312c-submitterDetails");
-        if (typeof submitterFields !== "undefined") {
-            const submitterEmail = document.getElementById("bd-66c8f6e11312c-SubmitterEmail");
-            const submitterPhone = document.getElementById("bd-66c8f6e11312c-SubmitterPhone");
-            const submitterFirstName = document.getElementById("bd-66c8f6e11312c-SubmitterFirstName");
-            const submitterLastName = document.getElementById("bd-66c8f6e11312c-SubmitterLastName");
-            if (isSubmitterDifferent == "yes") {
-                submitterFields.style.display = "block";
-                submitterFirstName.setAttribute('required', true);
-                submitterLastName.setAttribute('required', true);
-                submitterEmail.setAttribute('required', true);
-                submitterPhone.setAttribute('required', true);
-            } else {
-                submitterFields.style.display = "none";
-                submitterFirstName.removeAttribute('required');
-                submitterLastName.removeAttribute('required');
-                submitterEmail.removeAttribute('required');
-                submitterPhone.removeAttribute('required');
-            }
-        }
     }
 }
 
@@ -553,31 +591,65 @@ function requesterPhoneEmailValidation(e) {
     }
 }
 
-function swapGrievanceForms() {
-    //get forms
-    const grievanceForm = document.getElementById("bd-66c8f6e11312c-grievanceForm");
-    const cameraForm = document.getElementById("bd-66c8f6e11312c-raCameraForm");
-    const interpreterForm = document.getElementById("bd-66c8f6e11312c-raInterpreterForm");
+function submitterDifferentCheck() {
+    let isSubmitterDifferent = "no";
+    let submitterFields = document.getElementById("bd-66cf4e4c1f574-submitterDetails");
+    let submitterFirstNameField = document.getElementById("bd-66cf4e4c1f574-SubmitterFirstName");
+    let submitterLastNameField = document.getElementById("bd-66cf4e4c1f574-SubmitterLastName");
+    let submitterEmail = document.getElementById("bd-66cf4e4c1f574-SubmitterEmail");
+    let submitterPhone = document.getElementById("bd-66cf4e4c1f574-SubmitterPhone");
 
-    //get the value of the request type
-    const selectedValue = document.getElementById("bd-66c8f6e11312c-RequestTypeID").value;
-
-    if (typeof selectedValue === "undefined") {
-        return;
+    if (submitterFirstNameField && submitterFirstNameField.value) {
+        if (submitterFirstNameField !== null) submitterFirstNameField.required = true;
+        if (submitterLastNameField !== null) submitterLastNameField.required = true;
+        if (submitterEmail !== null) {
+            submitterEmail.required = false;
+        }
+        if (submitterPhone !== null) {
+            submitterPhone.required = false;
+        }
+        if (submitterEmail !== null && !submitterEmail.value && submitterPhone !== null && !submitterPhone.value) {
+            submitterEmail.required = true;
+            submitterPhone.required = true;
+        }
+        isSubmitterDifferent = "yes"
+    } else {
+        if (submitterFirstNameField !== null) submitterFirstNameField.required = false;
+        if (submitterLastNameField !== null) submitterLastNameField.required = false;
+        if (submitterEmail !== null) submitterEmail.required = false;
+        if (submitterPhone !== null) submitterPhone.required = false;
     }
 
-    grievanceForm.style.display = "none";
-    cameraForm.style.display = "none";
-    interpreterForm.style.display = "none";
-
-    //show and hide the correct form
-    if (selectedValue == 6 || selectedValue == 7) {
-        document.getElementById("bd-66c8f6e11312c-grievanceFormTitle").innerHTML = selectedValue == 6 ? "Grievance" : "Reasonable Accommodation";
-        grievanceForm.style.display = "block";
-    } else if (selectedValue == 8) {
-        cameraForm.style.display = "block";
-    } else if (selectedValue == 9) {
-        interpreterForm.style.display = "block";
-    }
+    return isSubmitterDifferent;
 }
-})();
+
+function grievanceTypeValidation() {
+    let validated = false;
+    let checkboxes = document.querySelectorAll('input[name="GrievanceType[]"]');
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            validated = true;
+            break;
+        }
+    }
+    let grievanceTypeOptions = document.getElementById("bd-66cf4e4c1f574-grievance-type-options");
+    if (grievanceTypeOptions) {
+        if (!validated) {
+            grievanceTypeOptions.classList.add('bd-66cf4e4c1f574-invalidField');
+        } else {
+            grievanceTypeOptions.classList.remove('bd-66cf4e4c1f574-invalidField');
+        }
+    }
+
+    let otherCheckbox = document.querySelector('input[name="GrievanceType[]"][value="Other"]');
+    let otherInput = document.querySelector('input[name="GrievanceTypeOther"]');
+    if (otherCheckbox && otherInput) {
+        if (otherCheckbox.checked) {
+        otherInput.setAttribute('required', 'required');
+        } else {
+            otherInput.removeAttribute('required');
+        }
+    }
+
+    return validated;
+}
