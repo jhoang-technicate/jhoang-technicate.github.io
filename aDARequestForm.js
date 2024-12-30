@@ -3,39 +3,39 @@ function initGrievanceForm() {
     //build Grievance form
     let grievanceTemplate = `
         <style>
-            .bd-66d0b26777c2d-control-group {
+            .bd-6772d63032964-control-group {
                 display: block;
                 margin-bottom: 24px;
             }
-            .bd-66d0b26777c2d-control-label {
+            .bd-6772d63032964-control-label {
                 float: left;
                 width: 170px;
                 padding-top: 5px;
                 text-align: right;
             }
-            .bd-66d0b26777c2d-controls {
+            .bd-6772d63032964-controls {
                 margin-left: 180px;
                 padding-top: 5px;
             }
-            #bd-66d0b26777c2d-grievanceForm.validated input:invalid,
-            #bd-66d0b26777c2d-grievanceForm.validated select:invalid,
-            #bd-66d0b26777c2d-raCameraForm.validated input:invalid,
-            #bd-66d0b26777c2d-raCameraForm.validated select:invalid,
-            #bd-66d0b26777c2d-raInterpreterForm.validated input:invalid,
-            #bd-66d0b26777c2d-raInterpreterForm.validated select:invalid
+            #bd-6772d63032964-grievanceForm.validated input:invalid,
+            #bd-6772d63032964-grievanceForm.validated select:invalid,
+            #bd-6772d63032964-raCameraForm.validated input:invalid,
+            #bd-6772d63032964-raCameraForm.validated select:invalid,
+            #bd-6772d63032964-raInterpreterForm.validated input:invalid,
+            #bd-6772d63032964-raInterpreterForm.validated select:invalid
             {
                 border: 1px solid red;
             }
-            .bd-66d0b26777c2d-required-label {
+            .bd-6772d63032964-required-label {
                 color: red;
             }
         </style>
-        <div id="bd-66d0b26777c2d-formSelector">
+        <div id="bd-6772d63032964-formSelector">
             <div>
-                <label for="bd-66d0b26777c2d-RequestTypeID" class=""><span class="bd-66d0b26777c2d-required-label">*</span> Reasonable Accommodation Program Type:</label>
+                <label for="bd-6772d63032964-RequestTypeID" class=""><span class="bd-6772d63032964-required-label">*</span> Reasonable Accommodation Program Type:</label>
                 <div style="padding: 10px 0;">
                     <span>
-                        <select name="RequestTypeID" id="bd-66d0b26777c2d-RequestTypeID" required>
+                        <select name="RequestTypeID" id="bd-6772d63032964-RequestTypeID" required>
                             <option value="" selected="selected">Please Select...</option>
                             <option value="6">Grievance</option>
                             <option value="7">Reasonable Accommodation</option>
@@ -47,257 +47,258 @@ function initGrievanceForm() {
             </div>
         </div>
         <hr />
-        <form id="bd-66d0b26777c2d-grievanceForm" accept-charset="utf-8" style="display:none;">
-            <h3 id="bd-66d0b26777c2d-grievanceFormTitle">Grievance</h3>
+        <form id="bd-6772d63032964-grievanceForm" accept-charset="utf-8" style="display:none;">
+            <h3 id="bd-6772d63032964-grievanceFormTitle">Grievance</h3>
             <div>
                 <h4>Requester Information</h4>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-RequesterFirstName" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Name:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="RequesterFirstName" value="" id="bd-66d0b26777c2d-RequesterFirstName" placeholder="First Name" required />
-                        <input type="text" name="RequesterLastName" value="" id="bd-66d0b26777c2d-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-RequesterFirstName" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Name:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="RequesterFirstName" value="" id="bd-6772d63032964-RequesterFirstName" placeholder="First Name" required />
+                        <input type="text" name="RequesterLastName" value="" id="bd-6772d63032964-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-RequesterPhone" class="bd-66d0b26777c2d-control-label">Phone Number:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="tel" name="RequesterPhone" class="bd-66d0b26777c2d-poc" value="" id="bd-66d0b26777c2d-RequesterPhone" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-RequesterPhone" class="bd-6772d63032964-control-label">Phone Number:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="tel" name="RequesterPhone" class="bd-6772d63032964-poc" value="" id="bd-6772d63032964-RequesterPhone" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-RequesterEmail" class="bd-66d0b26777c2d-control-label">Email:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="email" name="RequesterEmail" class="bd-66d0b26777c2d-poc" value="" id="bd-66d0b26777c2d-RequesterEmail" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-RequesterEmail" class="bd-6772d63032964-control-label">Email:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="email" name="RequesterEmail" class="bd-6772d63032964-poc" value="" id="bd-6772d63032964-RequesterEmail" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <div class="bd-66d0b26777c2d-controls">
-                        <span class="bd-66d0b26777c2d-required-label">*</span> Please provide either an email or phone number.
+                <div class="bd-6772d63032964-control-group">
+                    <div class="bd-6772d63032964-controls">
+                        <span class="bd-6772d63032964-required-label">*</span> Please provide either an email or phone number.
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label class="bd-66d0b26777c2d-control-label" for="bd-66d0b26777c2d-SubmitterDifferent">Is submitter different:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <select name="SubmitterDifferent" id="bd-66d0b26777c2d-SubmitterDifferent" required>
+                <div class="bd-6772d63032964-control-group">
+                    <label class="bd-6772d63032964-control-label" for="bd-6772d63032964-SubmitterDifferent">Is submitter different:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <select name="SubmitterDifferent" id="bd-6772d63032964-SubmitterDifferent" required>
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select>
                     </div>
                 </div>
-                <div id="bd-66d0b26777c2d-submitterDetails" style="display: none;">
+                <div id="bd-6772d63032964-submitterDetails" style="display: none;">
                     <hr />
                     <h4>Submitter Information</h4>
-                    <div class="bd-66d0b26777c2d-control-group">
-                        <label for="bd-66d0b26777c2d-SubmitterFirstName" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Name:</label>
-                        <div class="bd-66d0b26777c2d-controls">
-                            <input type="text" name="SubmitterFirstName" value="" id="bd-66d0b26777c2d-SubmitterFirstName" placeholder="First Name" />
-                            <input type="text" name="SubmitterLastName" value="" id="bd-66d0b26777c2d-SubmitterLastName" placeholder="Last Name" aria-label="Last Name" />
+                    <div class="bd-6772d63032964-control-group">
+                        <label for="bd-6772d63032964-SubmitterFirstName" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Name:</label>
+                        <div class="bd-6772d63032964-controls">
+                            <input type="text" name="SubmitterFirstName" value="" id="bd-6772d63032964-SubmitterFirstName" placeholder="First Name" />
+                            <input type="text" name="SubmitterLastName" value="" id="bd-6772d63032964-SubmitterLastName" placeholder="Last Name" aria-label="Last Name" />
                         </div>
                     </div>
-                    <div class="bd-66d0b26777c2d-control-group">
-                        <label for="bd-66d0b26777c2d-SubmitterPhone" class="bd-66d0b26777c2d-control-label">Phone Number:</label>
-                        <div class="bd-66d0b26777c2d-controls">
-                            <input type="tel" name="SubmitterPhone" class="bd-66d0b26777c2d-poc" data-submitter="1" value="" id="bd-66d0b26777c2d-SubmitterPhone" />
+                    <div class="bd-6772d63032964-control-group">
+                        <label for="bd-6772d63032964-SubmitterPhone" class="bd-6772d63032964-control-label">Phone Number:</label>
+                        <div class="bd-6772d63032964-controls">
+                            <input type="tel" name="SubmitterPhone" class="bd-6772d63032964-poc" data-submitter="1" value="" id="bd-6772d63032964-SubmitterPhone" />
                         </div>
                     </div>
-                    <div class="bd-66d0b26777c2d-control-group">
-                        <label for="bd-66d0b26777c2d-SubmitterEmail" class="bd-66d0b26777c2d-control-label">Email:</label>
-                        <div class="bd-66d0b26777c2d-controls">
-                            <input type="email" name="SubmitterEmail" class="bd-66d0b26777c2d-poc" data-submitter="1" value="" id="bd-66d0b26777c2d-SubmitterEmail" />
+                    <div class="bd-6772d63032964-control-group">
+                        <label for="bd-6772d63032964-SubmitterEmail" class="bd-6772d63032964-control-label">Email:</label>
+                        <div class="bd-6772d63032964-controls">
+                            <input type="email" name="SubmitterEmail" class="bd-6772d63032964-poc" data-submitter="1" value="" id="bd-6772d63032964-SubmitterEmail" />
                         </div>
                     </div>
-                    <div class="bd-66d0b26777c2d-control-group">
-                        <div class="bd-66d0b26777c2d-controls">
-                            <span class="bd-66d0b26777c2d-required-label">*</span> Please provide either an email or phone number.
+                    <div class="bd-6772d63032964-control-group">
+                        <div class="bd-6772d63032964-controls">
+                            <span class="bd-6772d63032964-required-label">*</span> Please provide either an email or phone number.
                         </div>
                     </div>
-                    <div class="bd-66d0b26777c2d-control-group" style="margin-bottom: 10px;">
-                        <label for="bd-66d0b26777c2d-SubmitterTitle" class="bd-66d0b26777c2d-control-label">Relationship to Requester:</label>
-                        <div class="bd-66d0b26777c2d-controls">
-                            <input type="text" name="SubmitterTitle" value="" id="bd-66d0b26777c2d-SubmitterTitle" />
+                    <div class="bd-6772d63032964-control-group" style="margin-bottom: 10px;">
+                        <label for="bd-6772d63032964-SubmitterTitle" class="bd-6772d63032964-control-label">Relationship to Requester:</label>
+                        <div class="bd-6772d63032964-controls">
+                            <input type="text" name="SubmitterTitle" value="" id="bd-6772d63032964-SubmitterTitle" />
                         </div>
                     </div><br />
                 </div>
                 <hr />
                 <h4>Location Information</h4>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-LocationAddress" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Location:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="LocationAddress" value="" id="bd-66d0b26777c2d-LocationAddress" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-LocationAddress" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Location:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="LocationAddress" value="" id="bd-6772d63032964-LocationAddress" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-ActualAddress" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Address:</label>
-                    <div class="bd-66d0b26777c2d-controls">
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-ActualAddress" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Address:</label>
+                    <div class="bd-6772d63032964-controls">
                         <span>
-                            <input type="text" name="ActualAddress" value="" id="bd-66d0b26777c2d-ActualAddress" required />
+                            <input type="text" name="ActualAddress" value="" id="bd-6772d63032964-ActualAddress" required />
                         </span>
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> City/State/Zip:</label>
-                    <div class="bd-66d0b26777c2d-controls">
+                <div class="bd-6772d63032964-control-group">
+                    <label class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> City/State/Zip:</label>
+                    <div class="bd-6772d63032964-controls">
                         <span>
-                            <input type="text" name="LocationCity" value="" id="bd-66d0b26777c2d-LocationCity" aria-label="City" required />
+                            <input type="text" name="LocationCity" value="" id="bd-6772d63032964-LocationCity" aria-label="City" required />
                         </span>
                         <span>
-                            <select name="LocationState" id="bd-66d0b26777c2d-LocationState" aria-label="State" required>
+                            <select name="LocationState" id="bd-6772d63032964-LocationState" aria-label="State" required>
                                 <option value="AL">AL</option><option value="AK">AK</option><option value="AS">AS</option><option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option><option value="DC">DC</option><option value="FM">FM</option><option value="FL">FL</option><option value="GA">GA</option><option value="GU">GU</option><option value="HI">HI</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="ME">ME</option><option value="MH">MH</option><option value="MD">MD</option><option value="MA">MA</option><option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option><option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option><option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option><option value="ND">ND</option><option value="MP">MP</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PW">PW</option><option value="PA">PA</option><option value="PR">PR</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option><option value="VI">VI</option><option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option>                            </select>
                         </span>
                         <span>
-                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-66d0b26777c2d-LocationZip" aria-label="ZIP Code" required />
+                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-6772d63032964-LocationZip" aria-label="ZIP Code" required />
                         </span>
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-LocationNote" class="bd-66d0b26777c2d-control-label">Location Notes:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <textarea name="LocationNote" cols="40" rows="3" id="bd-66d0b26777c2d-LocationNote"></textarea>
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-LocationNote" class="bd-6772d63032964-control-label">Location Notes:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <textarea name="LocationNote" cols="40" rows="3" id="bd-6772d63032964-LocationNote"></textarea>
                     </div>
                 </div>
                 <hr />
                 <h4>Request Information</h4>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label class="bd-66d0b26777c2d-control-label" for="bd-66d0b26777c2d-ADAGrievance">Is this ADA-related:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <select name="ADAGrievance" id="bd-66d0b26777c2d-ADAGrievance" required>
+                <div class="bd-6772d63032964-control-group">
+                    <label class="bd-6772d63032964-control-label" for="bd-6772d63032964-ADAGrievance">Is this ADA-related:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <select name="ADAGrievance" id="bd-6772d63032964-ADAGrievance" required>
                             <option value="-1">Undetermined</option>
                             <option value="0">No</option>
                             <option value="1">Yes</option>
                         </select>
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label class="bd-66d0b26777c2d-control-label" for="bd-66d0b26777c2d-IncidentDate">Date of Incident:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="date" size="16" name="IncidentDate" id="bd-66d0b26777c2d-IncidentDate" />
+                <div class="bd-6772d63032964-control-group">
+                    <label class="bd-6772d63032964-control-label" for="bd-6772d63032964-IncidentDate">Date of Incident:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="date" size="16" name="IncidentDate" id="bd-6772d63032964-IncidentDate" />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-RequestReason" class="bd-66d0b26777c2d-control-label">Nature of Request:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <textarea name="RequestReason" cols="40" rows="3" id="bd-66d0b26777c2d-RequestReason"></textarea>
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-RequestReason" class="bd-6772d63032964-control-label">Nature of Request:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <textarea name="RequestReason" cols="40" rows="3" id="bd-6772d63032964-RequestReason"></textarea>
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-Notes" class="bd-66d0b26777c2d-control-label">Notes:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <textarea name="Notes" cols="40" rows="3" id="bd-66d0b26777c2d-Notes"></textarea>
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-Notes" class="bd-6772d63032964-control-label">Notes:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <textarea name="Notes" cols="40" rows="3" id="bd-6772d63032964-Notes"></textarea>
                     </div>
                 </div>
             </div>
             <div>
-                <button id="bd-66d0b26777c2d-grievanceFormSubmitBtn">Submit</button>
+                <button id="bd-6772d63032964-grievanceFormSubmitBtn">Submit</button>
             </div>
         </form>
-        <form id="bd-66d0b26777c2d-raCameraForm" accept-charset="utf-8" style="display:none;">
+        <form id="bd-6772d63032964-raCameraForm" accept-charset="utf-8" style="display:none;">
             <h3>Audio/Video Recording Request</h3>
             <div>
                 <p>Consistent with La. R.S. 17:1948, a parent or legal guardian may request the installation of an audio and video camera in a special education self-contained classroom or other special education setting. For more information, please visit the Exceptional Student Services webpage. This request will be in effect for one academic year.</p>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-AcademicYear" class="bd-66d0b26777c2d-control-label">Year:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="cf_811" value="" id="bd-66d0b26777c2d-raCameraForm-AcademicYear" />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-AcademicYear" class="bd-6772d63032964-control-label">Year:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="cf_796" value="" id="bd-6772d63032964-raCameraForm-AcademicYear" />
                     </div>
                 </div>
                 <h3>Requestor Information:</h3>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-RequesterFirstName" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Name:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="RequesterFirstName" value="" id="bd-66d0b26777c2d-raCameraForm-RequesterFirstName" placeholder="First Name" required />
-                        <input type="text" name="RequesterLastName" value="" id="bd-66d0b26777c2d-raCameraForm-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-RequesterFirstName" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Name:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="RequesterFirstName" value="" id="bd-6772d63032964-raCameraForm-RequesterFirstName" placeholder="First Name" required />
+                        <input type="text" name="RequesterLastName" value="" id="bd-6772d63032964-raCameraForm-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-RequesterPhone" class="bd-66d0b26777c2d-control-label">Phone Number:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="tel" name="RequesterPhone" class="bd-66d0b26777c2d-poc" value="" id="bd-66d0b26777c2d-raCameraForm-RequesterPhone" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-RequesterPhone" class="bd-6772d63032964-control-label">Phone Number:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="tel" name="RequesterPhone" class="bd-6772d63032964-poc" value="" id="bd-6772d63032964-raCameraForm-RequesterPhone" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-RequesterEmail" class="bd-66d0b26777c2d-control-label">Email:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="email" name="RequesterEmail" class="bd-66d0b26777c2d-poc" value="" id="bd-66d0b26777c2d-raCameraForm-RequesterEmail" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-RequesterEmail" class="bd-6772d63032964-control-label">Email:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="email" name="RequesterEmail" class="bd-6772d63032964-poc" value="" id="bd-6772d63032964-raCameraForm-RequesterEmail" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <div class="bd-66d0b26777c2d-controls">
-                        <span class="bd-66d0b26777c2d-required-label">*</span> Please provide either an email or phone number.
+                <div class="bd-6772d63032964-control-group">
+                    <div class="bd-6772d63032964-controls">
+                        <span class="bd-6772d63032964-required-label">*</span> Please provide either an email or phone number.
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label class="bd-66d0b26777c2d-control-label" for="bd-66d0b26777c2d-RelationshipToChild">Relationship to child:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <select name="cf_816" id="bd-66d0b26777c2d-RelationshipToChild" required>
+                <div class="bd-6772d63032964-control-group">
+                    <label class="bd-6772d63032964-control-label" for="bd-6772d63032964-RelationshipToChild">Relationship to child:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <select name="cf_801" id="bd-6772d63032964-RelationshipToChild" required>
                             <option value="Parents">Parent(s)</option>
                             <option value="Legal Guardians">Legal Guardian(s)</option>
                             <option value="Adult Student">Adult Student</option>
                         </select>
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-ChildName" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Child's full name:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="cf_814" value="" id="bd-66d0b26777c2d-raCameraForm-ChildName" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-ChildName" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Child's full name:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="cf_799" value="" id="bd-6772d63032964-raCameraForm-ChildName" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-Dob" class="bd-66d0b26777c2d-control-label">Date of Birth:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="date" size="16" name="cf_815" value="" id="bd-66d0b26777c2d-raCameraForm-Dob" />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-Dob" class="bd-6772d63032964-control-label">Date of Birth:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="date" size="16" name="cf_800" value="" id="bd-6772d63032964-raCameraForm-Dob" />
                     </div>
                 </div>
                 <h3>School Information:</h3>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-LocationAddress" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> School:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="LocationAddress" value="" id="bd-66d0b26777c2d-raCameraForm-LocationAddress" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-LocationAddress" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> School:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="LocationAddress" value="" id="bd-6772d63032964-raCameraForm-LocationAddress" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-ActualAddress" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Address:</label>
-                    <div class="bd-66d0b26777c2d-controls">
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-ActualAddress" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Address:</label>
+                    <div class="bd-6772d63032964-controls">
                         <span>
-                            <input type="text" name="ActualAddress" value="" id="bd-66d0b26777c2d-raCameraForm-ActualAddress" required />
+                            <input type="text" name="ActualAddress" value="" id="bd-6772d63032964-raCameraForm-ActualAddress" required />
                         </span>
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> City/State/Zip:</label>
-                    <div class="bd-66d0b26777c2d-controls">
+                <div class="bd-6772d63032964-control-group">
+                    <label class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> City/State/Zip:</label>
+                    <div class="bd-6772d63032964-controls">
                         <span>
-                            <input type="text" name="LocationCity" value="" id="bd-66d0b26777c2d-raCameraForm-LocationCity" aria-label="City" required />
+                            <input type="text" name="LocationCity" value="" id="bd-6772d63032964-raCameraForm-LocationCity" aria-label="City" required />
                         </span>
                         <span>
-                            <select name="LocationState" id="bd-66d0b26777c2d-raCameraForm-LocationState" aria-label="State" required>
+                            <select name="LocationState" id="bd-6772d63032964-raCameraForm-LocationState" aria-label="State" required>
                                 <option value="AL">AL</option><option value="AK">AK</option><option value="AS">AS</option><option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option><option value="DC">DC</option><option value="FM">FM</option><option value="FL">FL</option><option value="GA">GA</option><option value="GU">GU</option><option value="HI">HI</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="ME">ME</option><option value="MH">MH</option><option value="MD">MD</option><option value="MA">MA</option><option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option><option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option><option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option><option value="ND">ND</option><option value="MP">MP</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PW">PW</option><option value="PA">PA</option><option value="PR">PR</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option><option value="VI">VI</option><option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option>                            </select>
                         </span>
                         <span>
-                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-66d0b26777c2d-raCameraForm-LocationZip" aria-label="ZIP Code" required />
+                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-6772d63032964-raCameraForm-LocationZip" aria-label="ZIP Code" required />
                         </span>
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-Grade" class="bd-66d0b26777c2d-control-label">Grade:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="cf_817" value="" id="bd-66d0b26777c2d-raCameraForm-Grade" />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-Grade" class="bd-6772d63032964-control-label">Grade:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="cf_802" value="" id="bd-6772d63032964-raCameraForm-Grade" />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-RoomNumber" class="bd-66d0b26777c2d-control-label">Classroom / Room Number:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="cf_813" value="" id="bd-66d0b26777c2d-raCameraForm-RoomNumber" />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-RoomNumber" class="bd-6772d63032964-control-label">Classroom / Room Number:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="cf_798" value="" id="bd-6772d63032964-raCameraForm-RoomNumber" />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raCameraForm-Teacher" class="bd-66d0b26777c2d-control-label">Teacher's name:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="cf_818" value="" id="bd-66d0b26777c2d-raCameraForm-Teacher" />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raCameraForm-Teacher" class="bd-6772d63032964-control-label">Teacher's name:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="cf_803" value="" id="bd-6772d63032964-raCameraForm-Teacher" />
                     </div>
                 </div>
+                <input type="hidden" name="ADAGrievance" value="1" />
             </div>
             <div>
-                <button id="bd-66d0b26777c2d-raCameraSubmitBtn">Submit</button>
+                <button id="bd-6772d63032964-raCameraSubmitBtn">Submit</button>
             </div>
             <hr />
             <ul>
@@ -308,138 +309,139 @@ function initGrievanceForm() {
                 <li>We will strive to install the camera within 30 days of the approved request under normal circumstances. The district will reach out to you to discuss requests made late in the school year for timelines and options</li>
             </ul>
         </form>
-        <form id="bd-66d0b26777c2d-raInterpreterForm" accept-charset="utf-8" style="display:none;">
+        <form id="bd-6772d63032964-raInterpreterForm" accept-charset="utf-8" style="display:none;">
             <input type="hidden" name="SubmitterDifferent" value="yes" />
             <h3>Interpreting Service Request</h3>
             <div>
                 <h4>Requester Information</h4>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-RequesterFirstName" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Name:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="RequesterFirstName" value="" id="bd-66d0b26777c2d-raInterpreterForm-RequesterFirstName" placeholder="First Name" required />
-                        <input type="text" name="RequesterLastName" value="" id="bd-66d0b26777c2d-raInterpreterForm-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-RequesterFirstName" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Name:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="RequesterFirstName" value="" id="bd-6772d63032964-raInterpreterForm-RequesterFirstName" placeholder="First Name" required />
+                        <input type="text" name="RequesterLastName" value="" id="bd-6772d63032964-raInterpreterForm-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-RequesterPhone" class="bd-66d0b26777c2d-control-label">Phone Number:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="tel" name="RequesterPhone" class="bd-66d0b26777c2d-poc" value="" id="bd-66d0b26777c2d-raInterpreterForm-RequesterPhone" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-RequesterPhone" class="bd-6772d63032964-control-label">Phone Number:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="tel" name="RequesterPhone" class="bd-6772d63032964-poc" value="" id="bd-6772d63032964-raInterpreterForm-RequesterPhone" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-RequesterEmail" class="bd-66d0b26777c2d-control-label">Email:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="email" name="RequesterEmail" class="bd-66d0b26777c2d-poc" value="" id="bd-66d0b26777c2d-raInterpreterForm-RequesterEmail" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-RequesterEmail" class="bd-6772d63032964-control-label">Email:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="email" name="RequesterEmail" class="bd-6772d63032964-poc" value="" id="bd-6772d63032964-raInterpreterForm-RequesterEmail" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <div class="bd-66d0b26777c2d-controls">
-                        <span class="bd-66d0b26777c2d-required-label">*</span> Please provide either an email or phone number.
+                <div class="bd-6772d63032964-control-group">
+                    <div class="bd-6772d63032964-controls">
+                        <span class="bd-6772d63032964-required-label">*</span> Please provide either an email or phone number.
                     </div>
                 </div>
                 <h4>Contact Information</h4>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-SubmitterFirstName" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Contact Person/Doctor:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="SubmitterFirstName" value="" id="bd-66d0b26777c2d-raInterpreterForm-SubmitterFirstName" placeholder="First Name" required />
-                        <input type="text" name="SubmitterLastName" value="" id="bd-66d0b26777c2d-SubmitterLastName" placeholder="Last Name" aria-label="Last Name" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-SubmitterFirstName" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Contact Person/Doctor:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="SubmitterFirstName" value="" id="bd-6772d63032964-raInterpreterForm-SubmitterFirstName" placeholder="First Name" required />
+                        <input type="text" name="SubmitterLastName" value="" id="bd-6772d63032964-SubmitterLastName" placeholder="Last Name" aria-label="Last Name" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-SubmitterPhone" class="bd-66d0b26777c2d-control-label">Contact Phone:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="tel" name="SubmitterPhone" class="bd-66d0b26777c2d-poc" data-submitter="1" value="" id="bd-66d0b26777c2d-raInterpreterForm-SubmitterPhone" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-SubmitterPhone" class="bd-6772d63032964-control-label">Contact Phone:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="tel" name="SubmitterPhone" class="bd-6772d63032964-poc" data-submitter="1" value="" id="bd-6772d63032964-raInterpreterForm-SubmitterPhone" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-SubmitterEmail" class="bd-66d0b26777c2d-control-label">Contact Email:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="email" name="SubmitterEmail" class="bd-66d0b26777c2d-poc" data-submitter="1" value="" id="bd-66d0b26777c2d-raInterpreterForm-SubmitterEmail" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-SubmitterEmail" class="bd-6772d63032964-control-label">Contact Email:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="email" name="SubmitterEmail" class="bd-6772d63032964-poc" data-submitter="1" value="" id="bd-6772d63032964-raInterpreterForm-SubmitterEmail" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <div class="bd-66d0b26777c2d-controls">
-                        <span class="bd-66d0b26777c2d-required-label">*</span> Please provide either an email or phone number.
+                <div class="bd-6772d63032964-control-group">
+                    <div class="bd-6772d63032964-controls">
+                        <span class="bd-6772d63032964-required-label">*</span> Please provide either an email or phone number.
                     </div>
                 </div>
                 <h4>Location Information</h4>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-LocationAddress" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Location:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="LocationAddress" value="" id="bd-66d0b26777c2d-raInterpreterForm-LocationAddress" required />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-LocationAddress" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Location:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="LocationAddress" value="" id="bd-6772d63032964-raInterpreterForm-LocationAddress" required />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-ActualAddress" class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> Address:</label>
-                    <div class="bd-66d0b26777c2d-controls">
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-ActualAddress" class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> Address:</label>
+                    <div class="bd-6772d63032964-controls">
                         <span>
-                            <input type="text" name="ActualAddress" value="" id="bd-66d0b26777c2d-raInterpreterForm-ActualAddress" required />
+                            <input type="text" name="ActualAddress" value="" id="bd-6772d63032964-raInterpreterForm-ActualAddress" required />
                         </span>
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label class="bd-66d0b26777c2d-control-label"><span class="bd-66d0b26777c2d-required-label">*</span> City/State/Zip:</label>
-                    <div class="bd-66d0b26777c2d-controls">
+                <div class="bd-6772d63032964-control-group">
+                    <label class="bd-6772d63032964-control-label"><span class="bd-6772d63032964-required-label">*</span> City/State/Zip:</label>
+                    <div class="bd-6772d63032964-controls">
                         <span>
-                            <input type="text" name="LocationCity" value="" id="bd-66d0b26777c2d-raInterpreterForm-LocationCity" aria-label="City" required />
+                            <input type="text" name="LocationCity" value="" id="bd-6772d63032964-raInterpreterForm-LocationCity" aria-label="City" required />
                         </span>
                         <span>
-                            <select name="LocationState" id="bd-66d0b26777c2d-raInterpreterForm-LocationState" aria-label="State" required>
+                            <select name="LocationState" id="bd-6772d63032964-raInterpreterForm-LocationState" aria-label="State" required>
                                 <option value="AL">AL</option><option value="AK">AK</option><option value="AS">AS</option><option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option><option value="DC">DC</option><option value="FM">FM</option><option value="FL">FL</option><option value="GA">GA</option><option value="GU">GU</option><option value="HI">HI</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="ME">ME</option><option value="MH">MH</option><option value="MD">MD</option><option value="MA">MA</option><option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option><option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option><option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option><option value="ND">ND</option><option value="MP">MP</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PW">PW</option><option value="PA">PA</option><option value="PR">PR</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option><option value="VI">VI</option><option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option>
                             </select>
                         </span>
                         <span>
-                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-66d0b26777c2d-raInterpreterForm-LocationZip" aria-label="ZIP Code" required />
+                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-6772d63032964-raInterpreterForm-LocationZip" aria-label="ZIP Code" required />
                         </span>
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-FloorNumber" class="bd-66d0b26777c2d-control-label">Floor Number:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="cf_812" value="" id="bd-66d0b26777c2d-raInterpreterForm-FloorNumber" />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-FloorNumber" class="bd-6772d63032964-control-label">Floor Number:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="cf_797" value="" id="bd-6772d63032964-raInterpreterForm-FloorNumber" />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-RoomNumber" class="bd-66d0b26777c2d-control-label">Suite Number:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="cf_813" value="" id="bd-66d0b26777c2d-raInterpreterForm-RoomNumber" />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-RoomNumber" class="bd-6772d63032964-control-label">Suite Number:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="cf_798" value="" id="bd-6772d63032964-raInterpreterForm-RoomNumber" />
                     </div>
                 </div>
                 <h4>Client Information</h4>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-ChildName" class="bd-66d0b26777c2d-control-label">Client/Patient:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="text" name="cf_814" value="" id="bd-66d0b26777c2d-raInterpreterForm-ChildName" />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-ChildName" class="bd-6772d63032964-control-label">Client/Patient:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="text" name="cf_799" value="" id="bd-6772d63032964-raInterpreterForm-ChildName" />
                     </div>
                 </div>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-Dob" class="bd-66d0b26777c2d-control-label">Date of Birth:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <input type="date" size="16" name="cf_815" value="" id="bd-66d0b26777c2d-raInterpreterForm-Dob" />
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-Dob" class="bd-6772d63032964-control-label">Date of Birth:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <input type="date" size="16" name="cf_800" value="" id="bd-6772d63032964-raInterpreterForm-Dob" />
                     </div>
                 </div>
                 <h4>Additional Information</h4>
-                <div class="bd-66d0b26777c2d-control-group">
-                    <label for="bd-66d0b26777c2d-raInterpreterForm-Notes" class="bd-66d0b26777c2d-control-label">Notes:</label>
-                    <div class="bd-66d0b26777c2d-controls">
-                        <textarea name="Notes" cols="40" rows="3" id="bd-66d0b26777c2d-raInterpreterForm-Notes"></textarea>
+                <div class="bd-6772d63032964-control-group">
+                    <label for="bd-6772d63032964-raInterpreterForm-Notes" class="bd-6772d63032964-control-label">Notes:</label>
+                    <div class="bd-6772d63032964-controls">
+                        <textarea name="Notes" cols="40" rows="3" id="bd-6772d63032964-raInterpreterForm-Notes"></textarea>
                     </div>
                 </div>
+                <input type="hidden" name="ADAGrievance" value="1" />
             </div>
             <div>
-                <button id="bd-66d0b26777c2d-raInterpreterSubmitBtn">Submit</button>
+                <button id="bd-6772d63032964-raInterpreterSubmitBtn">Submit</button>
             </div>
         </form>
     `;
     document.getElementById("bd-grievance").innerHTML = grievanceTemplate;
 
     //add listeners
-    document.getElementById("bd-66d0b26777c2d-RequestTypeID").addEventListener("change", swapGrievanceForms);
-    document.getElementById("bd-66d0b26777c2d-grievanceFormSubmitBtn").addEventListener("click", submitGrievanceForm);
-    document.getElementById("bd-66d0b26777c2d-raCameraSubmitBtn").addEventListener("click", submitGrievanceForm);
-    document.getElementById("bd-66d0b26777c2d-raInterpreterSubmitBtn").addEventListener("click", submitGrievanceForm);
-    document.getElementById("bd-66d0b26777c2d-SubmitterDifferent").addEventListener("change", submitterDifferent);
-    const pocFields = document.querySelectorAll('.bd-66d0b26777c2d-poc');
+    document.getElementById("bd-6772d63032964-RequestTypeID").addEventListener("change", swapGrievanceForms);
+    document.getElementById("bd-6772d63032964-grievanceFormSubmitBtn").addEventListener("click", submitGrievanceForm);
+    document.getElementById("bd-6772d63032964-raCameraSubmitBtn").addEventListener("click", submitGrievanceForm);
+    document.getElementById("bd-6772d63032964-raInterpreterSubmitBtn").addEventListener("click", submitGrievanceForm);
+    document.getElementById("bd-6772d63032964-SubmitterDifferent").addEventListener("change", submitterDifferent);
+    const pocFields = document.querySelectorAll('.bd-6772d63032964-poc');
     for (let i = 0; i < pocFields.length; i++) {
         pocFields[i].addEventListener('change', requesterPhoneEmailValidation);
     }
@@ -449,7 +451,7 @@ initGrievanceForm();
 function submitGrievanceForm(e) {
     e.preventDefault();
 
-    const selectedForm = document.getElementById("bd-66d0b26777c2d-RequestTypeID").value;
+    const selectedForm = document.getElementById("bd-6772d63032964-RequestTypeID").value;
     let formId = false;
 
     if (selectedForm == 6 || selectedForm == 7) {
@@ -464,11 +466,11 @@ function submitGrievanceForm(e) {
         return;
     }
 
-    const form = document.getElementById("bd-66d0b26777c2d-" + formId);
+    const form = document.getElementById("bd-6772d63032964-" + formId);
     form.classList.add('validated');
     if (form.checkValidity()) {
-        const formFields = document.getElementById("bd-66d0b26777c2d-" + formId).elements;
-        const selectedForm = document.getElementById("bd-66d0b26777c2d-RequestTypeID").value;
+        const formFields = document.getElementById("bd-6772d63032964-" + formId).elements;
+        const selectedForm = document.getElementById("bd-6772d63032964-RequestTypeID").value;
         let postObj = { RequestTypeID: selectedForm };
         let customFields = {};
         for (let i = 0; i < formFields.length; i++) {
@@ -498,7 +500,7 @@ function submitGrievanceForm(e) {
                 }
             }
         };
-        xhr.open("POST", '"https:\/\/api.dev.bluedag.com\/js\/grievance\/submit?jsAuth=Bj0twoiOr3hGp0imzwFmYvVXoeK9SftCBwMBaYZR8Ww4Y4MgQAR8ZoZbw35kx1lp"');
+        xhr.open("POST", "https:\/\/api.staging.bluedag.com\/js\/grievance\/submit?jsAuth=MnRX9YvpPXwY6lpOfSeAaLBJus5ok5Lvet6gXq0rSfUQOmtGrWcBC6IfnSmtsH1R");
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(postObj));
 
@@ -511,12 +513,12 @@ function submitGrievanceForm(e) {
 function submitterDifferent(e) {
     const isSubmitterDifferent = e.target.value;
     if (typeof isSubmitterDifferent !== "undefined") {
-        let submitterFields = document.getElementById("bd-66d0b26777c2d-submitterDetails");
+        let submitterFields = document.getElementById("bd-6772d63032964-submitterDetails");
         if (typeof submitterFields !== "undefined") {
-            const submitterEmail = document.getElementById("bd-66d0b26777c2d-SubmitterEmail");
-            const submitterPhone = document.getElementById("bd-66d0b26777c2d-SubmitterPhone");
-            const submitterFirstName = document.getElementById("bd-66d0b26777c2d-SubmitterFirstName");
-            const submitterLastName = document.getElementById("bd-66d0b26777c2d-SubmitterLastName");
+            const submitterEmail = document.getElementById("bd-6772d63032964-SubmitterEmail");
+            const submitterPhone = document.getElementById("bd-6772d63032964-SubmitterPhone");
+            const submitterFirstName = document.getElementById("bd-6772d63032964-SubmitterFirstName");
+            const submitterLastName = document.getElementById("bd-6772d63032964-SubmitterLastName");
             if (isSubmitterDifferent == "yes") {
                 submitterFields.style.display = "block";
                 submitterFirstName.setAttribute('required', true);
@@ -555,12 +557,12 @@ function requesterPhoneEmailValidation(e) {
 
 function swapGrievanceForms() {
     //get forms
-    const grievanceForm = document.getElementById("bd-66d0b26777c2d-grievanceForm");
-    const cameraForm = document.getElementById("bd-66d0b26777c2d-raCameraForm");
-    const interpreterForm = document.getElementById("bd-66d0b26777c2d-raInterpreterForm");
+    const grievanceForm = document.getElementById("bd-6772d63032964-grievanceForm");
+    const cameraForm = document.getElementById("bd-6772d63032964-raCameraForm");
+    const interpreterForm = document.getElementById("bd-6772d63032964-raInterpreterForm");
 
     //get the value of the request type
-    const selectedValue = document.getElementById("bd-66d0b26777c2d-RequestTypeID").value;
+    const selectedValue = document.getElementById("bd-6772d63032964-RequestTypeID").value;
 
     if (typeof selectedValue === "undefined") {
         return;
@@ -572,7 +574,7 @@ function swapGrievanceForms() {
 
     //show and hide the correct form
     if (selectedValue == 6 || selectedValue == 7) {
-        document.getElementById("bd-66d0b26777c2d-grievanceFormTitle").innerHTML = selectedValue == 6 ? "Grievance" : "Reasonable Accommodation";
+        document.getElementById("bd-6772d63032964-grievanceFormTitle").innerHTML = selectedValue == 6 ? "Grievance" : "Reasonable Accommodation";
         grievanceForm.style.display = "block";
     } else if (selectedValue == 8) {
         cameraForm.style.display = "block";
