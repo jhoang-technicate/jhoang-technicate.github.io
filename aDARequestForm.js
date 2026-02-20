@@ -2,137 +2,137 @@ function initGrievanceForm() {
     //build Grievance form
     let grievanceTemplate = `
         <style>
-            .bd-6996490568051-control-group {
+            .bd-6998e9afc3d0a-control-group {
                 margin-bottom: 20px;
             }
-            .bd-6996490568051-control-label {
+            .bd-6998e9afc3d0a-control-label {
                 float: left;
                 width: 160px;
                 padding-top: 5px;
                 text-align: right;
             }
-            .bd-6996490568051-controls {
+            .bd-6998e9afc3d0a-controls {
                 margin-left: 180px;
             }
-            #bd-6996490568051-grievanceForm.validated input:invalid,
-            #bd-6996490568051-grievanceForm.validated select:invalid
+            #bd-6998e9afc3d0a-grievanceForm.validated input:invalid,
+            #bd-6998e9afc3d0a-grievanceForm.validated select:invalid
              {
                 border: 1px solid red;
             }
-            .bd-6996490568051-required-label {
+            .bd-6998e9afc3d0a-required-label {
                 color: red;
             }
         </style>
-        <form id="bd-6996490568051-grievanceForm" accept-charset="utf-8">
+        <form id="bd-6998e9afc3d0a-grievanceForm" accept-charset="utf-8">
             <div>
                 <h4>Requester Information</h4>
-                <div class="bd-6996490568051-control-group">
-                    <label for="bd-6996490568051-RequesterFirstName" class="bd-6996490568051-control-label"><span class="bd-6996490568051-required-label">*</span> Name:</label>
-                    <div class="bd-6996490568051-controls">
-                        <input type="text" name="RequesterFirstName" value="" id="bd-6996490568051-RequesterFirstName" placeholder="First Name" required />
-                        <input type="text" name="RequesterLastName" value="" id="bd-6996490568051-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label for="bd-6998e9afc3d0a-RequesterFirstName" class="bd-6998e9afc3d0a-control-label"><span class="bd-6998e9afc3d0a-required-label">*</span> Name:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
+                        <input type="text" name="RequesterFirstName" value="" id="bd-6998e9afc3d0a-RequesterFirstName" placeholder="First Name" required />
+                        <input type="text" name="RequesterLastName" value="" id="bd-6998e9afc3d0a-RequesterLastName" placeholder="Last Name" aria-label="Last Name" required />
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <label for="bd-6996490568051-RequesterPhone" class="bd-6996490568051-control-label">Phone Number:</label>
-                    <div class="bd-6996490568051-controls">
-                        <input type="tel" name="RequesterPhone" value="" class="bd-6996490568051-poc" id="bd-6996490568051-RequesterPhone" required />
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label for="bd-6998e9afc3d0a-RequesterPhone" class="bd-6998e9afc3d0a-control-label">Phone Number:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
+                        <input type="tel" name="RequesterPhone" value="" class="bd-6998e9afc3d0a-poc" id="bd-6998e9afc3d0a-RequesterPhone" required />
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <label for="bd-6996490568051-RequesterEmail" class="bd-6996490568051-control-label">Email:</label>
-                    <div class="bd-6996490568051-controls">
-                        <input type="email" name="RequesterEmail" value="" class="bd-6996490568051-poc" id="bd-6996490568051-RequesterEmail" required />
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label for="bd-6998e9afc3d0a-RequesterEmail" class="bd-6998e9afc3d0a-control-label">Email:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
+                        <input type="email" name="RequesterEmail" value="" class="bd-6998e9afc3d0a-poc" id="bd-6998e9afc3d0a-RequesterEmail" required />
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <div class="bd-6996490568051-controls">
-                        <span class="bd-6996490568051-required-label">*</span> Please provide either an email or phone number.
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <div class="bd-6998e9afc3d0a-controls">
+                        <span class="bd-6998e9afc3d0a-required-label">*</span> Please provide either an email or phone number.
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <label class="bd-6996490568051-control-label">Is submitter different:</label>
-                    <div class="bd-6996490568051-controls">
-                        <label class="radio"><input type="radio" name="SubmitterDifferent" value="yes" id="bd-6996490568051-SubmitterDifferent_Yes" /> Yes</label>
-                        <label class="radio"><input type="radio" name="SubmitterDifferent" value="no" id="bd-6996490568051-SubmitterDifferent_No" checked /> No</label>
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label class="bd-6998e9afc3d0a-control-label">Is submitter different:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
+                        <label class="radio"><input type="radio" name="SubmitterDifferent" value="yes" id="bd-6998e9afc3d0a-SubmitterDifferent_Yes" /> Yes</label>
+                        <label class="radio"><input type="radio" name="SubmitterDifferent" value="no" id="bd-6998e9afc3d0a-SubmitterDifferent_No" checked /> No</label>
                     </div>
                 </div>
-                <div id="bd-6996490568051-submitterDetails" style="display: none;">
+                <div id="bd-6998e9afc3d0a-submitterDetails" style="display: none;">
                     <hr />
                     <h4>Submitter Information</h4>
-                    <div class="bd-6996490568051-control-group">
-                        <label for="bd-6996490568051-SubmitterFirstName" class="bd-6996490568051-control-label">Name:</label>
-                        <div class="bd-6996490568051-controls">
-                            <input type="text" name="SubmitterFirstName" value="" id="bd-6996490568051-SubmitterFirstName" placeholder="First Name" />
-                            <input type="text" name="SubmitterLastName" value="" id="bd-6996490568051-SubmitterLastName" placeholder="Last Name" aria-label="Last Name" />
+                    <div class="bd-6998e9afc3d0a-control-group">
+                        <label for="bd-6998e9afc3d0a-SubmitterFirstName" class="bd-6998e9afc3d0a-control-label">Name:</label>
+                        <div class="bd-6998e9afc3d0a-controls">
+                            <input type="text" name="SubmitterFirstName" value="" id="bd-6998e9afc3d0a-SubmitterFirstName" placeholder="First Name" />
+                            <input type="text" name="SubmitterLastName" value="" id="bd-6998e9afc3d0a-SubmitterLastName" placeholder="Last Name" aria-label="Last Name" />
                         </div>
                     </div>
-                    <div class="bd-6996490568051-control-group">
-                        <label for="bd-6996490568051-SubmitterPhone" class="bd-6996490568051-control-label">Phone Number:</label>
-                        <div class="bd-6996490568051-controls">
-                            <input type="tel" name="SubmitterPhone" value="" class="bd-6996490568051-poc" id="bd-6996490568051-SubmitterPhone" data-submitter="1" />
+                    <div class="bd-6998e9afc3d0a-control-group">
+                        <label for="bd-6998e9afc3d0a-SubmitterPhone" class="bd-6998e9afc3d0a-control-label">Phone Number:</label>
+                        <div class="bd-6998e9afc3d0a-controls">
+                            <input type="tel" name="SubmitterPhone" value="" class="bd-6998e9afc3d0a-poc" id="bd-6998e9afc3d0a-SubmitterPhone" data-submitter="1" />
                         </div>
                     </div>
-                    <div class="bd-6996490568051-control-group">
-                        <label for="bd-6996490568051-SubmitterEmail" class="bd-6996490568051-control-label">Email:</label>
-                        <div class="bd-6996490568051-controls">
-                            <input type="email" name="SubmitterEmail" value="" class="bd-6996490568051-poc" id="bd-6996490568051-SubmitterEmail" data-submitter="1" />
+                    <div class="bd-6998e9afc3d0a-control-group">
+                        <label for="bd-6998e9afc3d0a-SubmitterEmail" class="bd-6998e9afc3d0a-control-label">Email:</label>
+                        <div class="bd-6998e9afc3d0a-controls">
+                            <input type="email" name="SubmitterEmail" value="" class="bd-6998e9afc3d0a-poc" id="bd-6998e9afc3d0a-SubmitterEmail" data-submitter="1" />
                         </div>
                     </div>
-                    <div class="bd-6996490568051-control-group">
-                        <div class="bd-6996490568051-controls">
-                            <span class="bd-6996490568051-required-label">*</span> Please provide either an email or phone number.
+                    <div class="bd-6998e9afc3d0a-control-group">
+                        <div class="bd-6998e9afc3d0a-controls">
+                            <span class="bd-6998e9afc3d0a-required-label">*</span> Please provide either an email or phone number.
                         </div>
                     </div>
-                    <div class="bd-6996490568051-control-group" style="margin-bottom: 10px;">
-                        <label for="bd-6996490568051-SubmitterTitle" class="bd-6996490568051-control-label">Relationship to Requester:</label>
-                        <div class="bd-6996490568051-controls">
-                            <input type="text" name="SubmitterTitle" value="" id="bd-6996490568051-SubmitterTitle" />
+                    <div class="bd-6998e9afc3d0a-control-group" style="margin-bottom: 10px;">
+                        <label for="bd-6998e9afc3d0a-SubmitterTitle" class="bd-6998e9afc3d0a-control-label">Relationship to Requester:</label>
+                        <div class="bd-6998e9afc3d0a-controls">
+                            <input type="text" name="SubmitterTitle" value="" id="bd-6998e9afc3d0a-SubmitterTitle" />
                         </div>
                     </div><br />
                 </div>
                 <hr />
                 <h4>Location Information</h4>
-                <div class="bd-6996490568051-control-group">
-                    <label for="bd-6996490568051-LocationAddress" class="bd-6996490568051-control-label"><span class="bd-6996490568051-required-label">*</span> Location:</label>
-                    <div class="bd-6996490568051-controls">
-                        <input type="text" name="LocationAddress" value="" id="bd-6996490568051-LocationAddress" required />
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label for="bd-6998e9afc3d0a-LocationAddress" class="bd-6998e9afc3d0a-control-label"><span class="bd-6998e9afc3d0a-required-label">*</span> Location:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
+                        <input type="text" name="LocationAddress" value="" id="bd-6998e9afc3d0a-LocationAddress" required />
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <label for="bd-6996490568051-ActualAddress" class="bd-6996490568051-control-label"><span class="bd-6996490568051-required-label">*</span> Address:</label>
-                    <div class="bd-6996490568051-controls">
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label for="bd-6998e9afc3d0a-ActualAddress" class="bd-6998e9afc3d0a-control-label"><span class="bd-6998e9afc3d0a-required-label">*</span> Address:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
                         <span>
-                            <input type="text" name="ActualAddress" value="" id="bd-6996490568051-ActualAddress" required />
+                            <input type="text" name="ActualAddress" value="" id="bd-6998e9afc3d0a-ActualAddress" required />
                         </span>
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <label class="bd-6996490568051-control-label"><span class="bd-6996490568051-required-label">*</span> City/State/Zip:</label>
-                    <div class="bd-6996490568051-controls">
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label class="bd-6998e9afc3d0a-control-label"><span class="bd-6998e9afc3d0a-required-label">*</span> City/State/Zip:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
                         <span>
-                            <input type="text" name="LocationCity" value="" id="bd-6996490568051-LocationCity" aria-label="City" required />
+                            <input type="text" name="LocationCity" value="" id="bd-6998e9afc3d0a-LocationCity" aria-label="City" required />
                         </span>
                         <span>
-                            <select name="LocationState" id="bd-6996490568051-LocationState" aria-label="State" required>
+                            <select name="LocationState" id="bd-6998e9afc3d0a-LocationState" aria-label="State" required>
                                 <option value="AL">AL</option><option value="AK">AK</option><option value="AS">AS</option><option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option><option value="DC">DC</option><option value="FM">FM</option><option value="FL">FL</option><option value="GA">GA</option><option value="GU">GU</option><option value="HI">HI</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="ME">ME</option><option value="MH">MH</option><option value="MD">MD</option><option value="MA">MA</option><option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option><option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option><option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option><option value="ND">ND</option><option value="MP">MP</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PW">PW</option><option value="PA">PA</option><option value="PR">PR</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option><option value="VI">VI</option><option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option>                            </select>
                         </span>
                         <span>
-                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-6996490568051-LocationZip" aria-label="ZIP Code" required />
+                            <input type="text" name="LocationZip" pattern="^[0-9]{5}(?:-[0-9]{4})?$" value="" id="bd-6998e9afc3d0a-LocationZip" aria-label="ZIP Code" required />
                         </span>
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <label for="bd-6996490568051-LocationNote" class="bd-6996490568051-control-label">Location Notes:</label>
-                    <div class="bd-6996490568051-controls">
-                        <textarea name="LocationNote" cols="40" rows="3" id="bd-6996490568051-LocationNote"></textarea>
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label for="bd-6998e9afc3d0a-LocationNote" class="bd-6998e9afc3d0a-control-label">Location Notes:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
+                        <textarea name="LocationNote" cols="40" rows="3" id="bd-6998e9afc3d0a-LocationNote"></textarea>
                     </div>
                 </div>
                 <hr />
                 <h4>Request Information</h4>
-                <div class="bd-6996490568051-control-group">
-                    <label for="bd-6996490568051-RequestTypeID" class="bd-6996490568051-control-label"><span class="bd-6996490568051-required-label">*</span> Request Type:</label>
-                    <div class="bd-6996490568051-controls">
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label for="bd-6998e9afc3d0a-RequestTypeID" class="bd-6998e9afc3d0a-control-label"><span class="bd-6998e9afc3d0a-required-label">*</span> Request Type:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
                         <span>
                             <select name="RequestTypeID" required>
                                 <option value="" selected="selected">Please Select...</option>
@@ -150,45 +150,45 @@ function initGrievanceForm() {
                         </span>
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <label class="bd-6996490568051-control-label">Is this ADA-related:</label>
-                    <div class="bd-6996490568051-controls">
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label class="bd-6998e9afc3d0a-control-label">Is this ADA-related:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
                         <label><input type="radio" name="ADAGrievance" value="1" /> Yes</label>
                         <label><input type="radio" name="ADAGrievance" value="0" /> No</label>
                         <label><input type="radio" name="ADAGrievance" value="-1" checked="checked" /> Undetermined</label>
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <label class="bd-6996490568051-control-label">Date of Incident:</label>
-                    <div class="bd-6996490568051-controls">
-                        <input type="date" name="IncidentDate" id="bd-6996490568051-IncidentDate" size="16" />
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label class="bd-6998e9afc3d0a-control-label">Date of Incident:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
+                        <input type="date" name="IncidentDate" id="bd-6998e9afc3d0a-IncidentDate" size="16" />
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <label for="bd-6996490568051-RequestReason" class="bd-6996490568051-control-label">Nature of Request:</label>
-                    <div class="bd-6996490568051-controls">
-                        <textarea name="RequestReason" cols="40" rows="3" id="bd-6996490568051-RequestReason"></textarea>
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label for="bd-6998e9afc3d0a-RequestReason" class="bd-6998e9afc3d0a-control-label">Nature of Request:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
+                        <textarea name="RequestReason" cols="40" rows="3" id="bd-6998e9afc3d0a-RequestReason"></textarea>
                     </div>
                 </div>
-                <div class="bd-6996490568051-control-group">
-                    <label for="bd-6996490568051-Notes" class="bd-6996490568051-control-label">Notes:</label>
-                    <div class="bd-6996490568051-controls">
-                        <textarea name="Notes" cols="40" rows="3" id="bd-6996490568051-Notes"></textarea>
+                <div class="bd-6998e9afc3d0a-control-group">
+                    <label for="bd-6998e9afc3d0a-Notes" class="bd-6998e9afc3d0a-control-label">Notes:</label>
+                    <div class="bd-6998e9afc3d0a-controls">
+                        <textarea name="Notes" cols="40" rows="3" id="bd-6998e9afc3d0a-Notes"></textarea>
                     </div>
                 </div>
             </div>
             <div>
-                <button id="bd-6996490568051-grievanceFormSubmitBtn">Submit</button>
+                <button id="bd-6998e9afc3d0a-grievanceFormSubmitBtn">Submit</button>
             </div>
         </form>
     `;
     document.getElementById("bd-grievance").innerHTML = grievanceTemplate;
 
     //add listeners
-    document.getElementById("bd-6996490568051-grievanceFormSubmitBtn").addEventListener("click", submitGrievanceForm);
-    document.getElementById("bd-6996490568051-SubmitterDifferent_Yes").addEventListener("change", submitterDifferent);
-    document.getElementById("bd-6996490568051-SubmitterDifferent_No").addEventListener("change", submitterDifferent);
-    const pocFields = document.querySelectorAll('.bd-6996490568051-poc');
+    document.getElementById("bd-6998e9afc3d0a-grievanceFormSubmitBtn").addEventListener("click", submitGrievanceForm);
+    document.getElementById("bd-6998e9afc3d0a-SubmitterDifferent_Yes").addEventListener("change", submitterDifferent);
+    document.getElementById("bd-6998e9afc3d0a-SubmitterDifferent_No").addEventListener("change", submitterDifferent);
+    const pocFields = document.querySelectorAll('.bd-6998e9afc3d0a-poc');
     for (let i = 0; i < pocFields.length; i++) {
         pocFields[i].addEventListener('change', requesterPhoneEmailValidation);
     }
@@ -196,12 +196,12 @@ function initGrievanceForm() {
 initGrievanceForm();
 
 function submitGrievanceForm(e) {
-    let form = document.getElementById("bd-6996490568051-grievanceForm");
+    let form = document.getElementById("bd-6998e9afc3d0a-grievanceForm");
 
     form.classList.add('validated');
 
     if (form.checkValidity()) {
-        const formFields = document.getElementById("bd-6996490568051-grievanceForm").elements;
+        const formFields = document.getElementById("bd-6998e9afc3d0a-grievanceForm").elements;
         let postObj = {};
         for (let i = 0; i < formFields.length; i++) {
             const item = formFields.item(i);
@@ -245,11 +245,11 @@ function submitGrievanceForm(e) {
 function submitterDifferent(e) {
     const isSubmitterDifferent = e.target.value;
     if (typeof isSubmitterDifferent !== "undefined") {
-        let submitterFields = document.getElementById("bd-6996490568051-submitterDetails");
-        let submitterFirstNameField = document.getElementById("bd-6996490568051-SubmitterFirstName");
-        let submitterLastNameField = document.getElementById("bd-6996490568051-SubmitterLastName");
-        let submitterEmail = document.getElementById("bd-6996490568051-SubmitterEmail");
-        let submitterPhone = document.getElementById("bd-6996490568051-SubmitterPhone");
+        let submitterFields = document.getElementById("bd-6998e9afc3d0a-submitterDetails");
+        let submitterFirstNameField = document.getElementById("bd-6998e9afc3d0a-SubmitterFirstName");
+        let submitterLastNameField = document.getElementById("bd-6998e9afc3d0a-SubmitterLastName");
+        let submitterEmail = document.getElementById("bd-6998e9afc3d0a-SubmitterEmail");
+        let submitterPhone = document.getElementById("bd-6998e9afc3d0a-SubmitterPhone");
 
         if (typeof submitterFields !== "undefined") {
             if (isSubmitterDifferent === "yes") {
